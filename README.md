@@ -1,2 +1,2 @@
-# fe-story
-gitbook for stories of front-end
+# Initial page
+
