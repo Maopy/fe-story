@@ -125,5 +125,48 @@ Visual Studio Code enables telemetry and crash reporting by default. To disable 
 
 If you would like to enable Vim keybindings in Visual Studio Code, install the **VSCodeVim** extension.
 
+### Creating SSH Keys
 
+You will frequently use SSH to access Git repositories or remote UNIX systems. macOS includes the standard OpenSSH suite of tools.
+
+OpenSSH stores your SSH keys in a _.ssh_ directory. To create this directory, run these commands in a terminal window:
+
+```text
+mkdir $HOME/.ssh
+chmod 0700 $HOME/.ssh
+```
+
+To create an SSH key, run the ssh-keygen command in a terminal window. For example:
+
+```text
+ssh-keygen -t rsa -b 4096 -C "Me MyName (MyDevice) <me@mydomain.com>"
+```
+
+{% hint style="info" %}
+Use 4096-bit RSA keys for all systems. The older DSA standard only supports 1024-bit keys, which are now too small to be considered secure.
+{% endhint %}
+
+## Setting Up Environments
+
+### Node.js for JavaScript Development
+
+Homebrew provides seperate packages for each version of Node.js. To ensure that you are using the version of Node.js that you expect, specify the version when you install it. For example, enter this command in a Terminal window to install the Node.js 10, the current LTS release:
+
+```text
+brew install node@10
+```
+
+### rustup for Rust Development
+
+The official _rustup_ utility enables you to install the tools for building software with the Rust programming language. Click on the Install button on the front page of the **Rust Website**, and follow the instructions.
+
+{% embed url="https://www.rust-lang.org/en-US/" %}
+
+By default, the installer adds the correct directory to your path. If this does not work, add this to your PATH manually:
+
+```text
+$HOME/.cargo/bin
+```
+
+This process installs all of the tools into your home directory, and does not add any files into system directories.
 
