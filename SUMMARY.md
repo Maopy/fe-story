@@ -9,6 +9,8 @@
   * [词法作用域](javascript/ydkjs/ci-fa-zuo-yong-yu.md)
   * [函数作用域和块作用域](javascript/ydkjs/han-shu-zuo-yong-yu-he-kuai-zuo-yong-yu.md)
   * [提升](javascript/ydkjs/ti-sheng.md)
+  * [作用域闭包](javascript/ydkjs/zuo-yong-yu-bi-bao.md)
+  * [动态作用域](javascript/ydkjs/dong-tai-zuo-yong-yu.md)
 
 ## Engineering
 
