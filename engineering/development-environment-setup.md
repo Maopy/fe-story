@@ -55,7 +55,7 @@ xcode-select --install
 
 ### Setting Up Homebrew
 
-{% embed url="https://brew.sh/" caption="" %}
+https://brew.sh/
 
 **Homebrew** provides a package management system for macOS, enabling you to quickly install and update the tools and libraries that you need. Follow the instructions on the site.
 
@@ -133,7 +133,7 @@ Use 4096-bit RSA keys for all systems. The older DSA standard only supports 1024
 
 iTerm2 is an open source replacement for Apple's Terminal. It's highly customizable and comes with a lot of useful features.
 
-{% embed url="https://www.iterm2.com/" caption="" %}
+https://www.iterm2.com/
 
 {% hint style="info" %}
 Instead of downloading and installing iTerm2 manually, you can use Homebrew
@@ -193,7 +193,7 @@ $ brew install zsh
 
 Oh My Zsh is an open source, community-driven framework for managing your zsh configuration. It comes with a bunch of features out of the box and improves your terminal experience.
 
-{% embed url="https://ohmyz.sh/" caption="" %}
+https://ohmyz.sh/
 
 The installation script should set zsh to your default shell, but if it doesn't you can do it manually through the `chsh` command, which is shorthand for 'change shell':
 
@@ -277,7 +277,7 @@ If you would like to enable Vim keybindings in Visual Studio Code, install the *
 
 #### Add Oh My Zsh Plugin
 
-{% embed url="https://github.com/valentinocossar/vscode" caption="" %}
+https://github.com/valentinocossar/vscode
 
 ## Setting Up Environments
 
@@ -293,7 +293,7 @@ brew install node@10
 
 The official _rustup_ utility enables you to install the tools for building software with the Rust programming language. Click on the Install button on the front page of the **Rust Website**, and follow the instructions.
 
-{% embed url="https://www.rust-lang.org/en-US/" caption="" %}
+https://www.rust-lang.org/en-US/
 
 By default, the installer adds the correct directory to your path. If this does not work, add this to your PATH manually:
 
