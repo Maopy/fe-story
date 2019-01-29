@@ -5,12 +5,15 @@
 ## JavaScript
 
 * [YDKJS](javascript/ydkjs/README.md)
-  * [什么是作用域？](javascript/ydkjs/shen-me-shi-zuo-yong-yu.md)
-  * [词法作用域](javascript/ydkjs/ci-fa-zuo-yong-yu.md)
-  * [函数作用域和块作用域](javascript/ydkjs/han-shu-zuo-yong-yu-he-kuai-zuo-yong-yu.md)
-  * [提升](javascript/ydkjs/ti-sheng.md)
-  * [作用域闭包](javascript/ydkjs/zuo-yong-yu-bi-bao.md)
-  * [动态作用域](javascript/ydkjs/dong-tai-zuo-yong-yu.md)
+  * [1. 什么是作用域？](javascript/ydkjs/shen-me-shi-zuo-yong-yu.md)
+  * [2. 词法作用域](javascript/ydkjs/ci-fa-zuo-yong-yu.md)
+  * [3. 函数作用域和块作用域](javascript/ydkjs/han-shu-zuo-yong-yu-he-kuai-zuo-yong-yu.md)
+  * [4. 提升](javascript/ydkjs/ti-sheng.md)
+  * [5. 作用域闭包](javascript/ydkjs/zuo-yong-yu-bi-bao.md)
+  * [附录A 动态作用域](javascript/ydkjs/dong-tai-zuo-yong-yu.md)
+  * [附录B 块作用域的替代方案](javascript/ydkjs/fu-lub-kuai-zuo-yong-yu-de-ti-dai-fang-an.md)
+  * [附录C this 词法](javascript/ydkjs/fu-lucthis-ci-fa.md)
+  * [1. 关于 this](javascript/ydkjs/1.-guan-yu-this.md)
 
 ## Engineering
 
