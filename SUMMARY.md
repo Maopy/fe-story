@@ -14,10 +14,11 @@
   * [附录B 块作用域的替代方案](javascript/ydkjs/fu-lub-kuai-zuo-yong-yu-de-ti-dai-fang-an.md)
   * [附录C this 词法](javascript/ydkjs/fu-lucthis-ci-fa.md)
   * [1. 关于 this](javascript/ydkjs/1.-guan-yu-this.md)
+  * [2. this 全面解析](javascript/ydkjs/2.-this-quan-mian-jie-xi.md)
 
 ## CSS
 
-* [CSS 诞生史](CSS/css_dan_sheng_shi.md)
+* [CSS 诞生史](css/css_dan_sheng_shi.md)
 
 ## Engineering
 
