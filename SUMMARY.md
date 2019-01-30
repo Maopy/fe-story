@@ -15,6 +15,7 @@
   * [附录C this 词法](javascript/ydkjs/fu-lucthis-ci-fa.md)
   * [1. 关于 this](javascript/ydkjs/1.-guan-yu-this.md)
   * [2. this 全面解析](javascript/ydkjs/2.-this-quan-mian-jie-xi.md)
+  * [3. 对象](javascript/ydkjs/3.-dui-xiang.md)
 
 ## CSS
 
