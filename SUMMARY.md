@@ -17,6 +17,7 @@
   * [2. this 全面解析](javascript/ydkjs/2.-this-quan-mian-jie-xi.md)
   * [3. 对象](javascript/ydkjs/3.-dui-xiang.md)
   * [4. 混合对象“类”](javascript/ydkjs/4.-hun-he-dui-xiang-lei.md)
+  * [5. 原型](javascript/ydkjs/5.-yuan-xing.md)
 
 ## CSS
 
