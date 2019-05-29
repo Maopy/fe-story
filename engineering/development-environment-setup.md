@@ -203,10 +203,72 @@ $ chsh -s /bin/zsh
 
 #### Plugins
 
+Zsh users have created some useful additions that integrate with it. One of the cool things you can add is syntax highlighting to color command types.
+
+```bash
+$ brew install zsh-syntax-highlighting
+```
+
+Another one is auto suggestions, which remember common commands that you can easily re-run.
+
+```bash
+$ brew install zsh-autosuggestions
+```
+
 Add plugins to your shell by adding the name of the plugin to the `plugin` array in your `.zshrc` .
 
 ```text
-plugins=(git zsh-syntax-highlighting)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+```
+
+#### Nerd fonts
+
+To be able to have prompt with extra icons, such as for github, you need to install a special font set. This will show you how to install and configure [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts#font-installation). There are [various options for installing Nerd Fonts](https://github.com/ryanoasis/nerd-fonts#font-installation). Here is the [option to install using homebrew](https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts).
+
+```bash
+$ brew tap caskroom/fonts
+$ brew cask install font-hack-nerd-font
+```
+
+Next setup **iTerm2** to use the font by going to:
+
+```text
+iTerm2 -> Preferences -> Profiles -> Text -> Font -> Change Font
+```
+
+Select the font **Hack Regular Nerd Font Complete** and adjust the size if your want too. Also check the box for `Use a different font for non-ASCII text`and select the font again. It should be displaying the new font and icons in the prompt.
+
+#### Powerlevel9k
+
+There are many themes for for zsh, but my favourite is [powerlevel9k](https://github.com/bhilburn/powerlevel9k/wiki/Install-Instructions#step-1-install-powerlevel9k).
+
+To install this theme for use in [Oh-My-Zsh](https://github.com/robbyrussell/oh-my-zsh), clone this repository into your OMZ `custom/themes`directory.
+
+```bash
+$ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+```
+
+You then need to select this theme in your `~/.zshrc`:
+
+```text
+ZSH_THEME="powerlevel9k/powerlevel9k"
+```
+
+You need to tell powerlevel9k to use the Nerd Font in your `~/.zshrc`.
+
+```bash
+$ echo "POWERLEVEL9K_MODE='nerdfont-complete'" >> ~/.zshrc
+$ source ~/powerlevel9k/powerlevel9k.zsh-theme
+```
+
+Powerlevel9k is [highly configurable](https://github.com/bhilburn/powerlevel9k#prompt-customization). To change your setup, open your `~/.zshrc` and add in the [configuration](https://github.com/bhilburn/powerlevel9k#prompt-customization) your prefer. In the screenshots in this post I have used the following setup, which are listed in my `~/.zshrc`.
+
+```text
+POWERLEVEL9K_MODE='nerdfont-complete'
+source ~/powerlevel9k/powerlevel9k.zsh-theme
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh dir vcs newline status)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 ```
 
 #### env.sh
