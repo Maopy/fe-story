@@ -54,14 +54,11 @@ Select _System Preferences &gt; Security & Privacy_, and set the following:
 * _Advanced..._
   * Select _Require an administrator password to access system-wide preferences_
 * _Firewall_, click _Turn Firewall On._
-* _Privacy_
-  * Select _Analytics_ and ensure that the options are not enabled.
 
 ### Spotlight
 
-* Uncheck _fonts, images, files_ etc.
-* Uncheck the _keyboard shortcuts_ as we'll be replacing them with _Alfred_
-* _Search Results_, ensure that _Spotlight Suggestions_ is not enabled.
+* Uncheck _Spotlight Suggestions, fonts, images, files_ etc.
+* Uncheck the _keyboard shortcuts_ as we'll be replacing them with _Alfred._
 
 ## Setting Up for Development
 
@@ -83,7 +80,7 @@ xcode-select --install
 
 **Homebrew** provides a package management system for macOS, enabling you to quickly install and update the tools and libraries that you need. Follow the instructions on the site.
 
-You should also amend your PATH, so that the versions of tools that are installed with Homebrew take precedence over others. To do this, edit the file _.bash\_profile_ in your home directory to include this line:
+You should also amend your PATH, so that the versions of tools that are installed with Homebrew take precedence over others. To do this, edit the file _.zshrc_ in your home directory to include this line:
 
 ```bash
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
@@ -179,17 +176,6 @@ brew cask install iterm2
 {% hint style="info" %}
 You may need to edit your config file as well:
 
-#### bash
-
-{% code-tabs %}
-{% code-tabs-item title="~/.inputrc" %}
-```bash
-"\e\e[C": forward-word
-"\e\e[D": backward-word
-```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
-
 #### zsh
 
 {% code-tabs %}
@@ -270,15 +256,7 @@ function mkcd() { mkdir -p "$@" && cd "$_"; }
 
 ### Text Editors
 
-Installations of macOS include older command-line versions of both **Emacs** and **vim**, as well as TextEdit, a desktop text editor. TextEdit is designed for light-weight word processing, and has no support for programming. Unless you already have a preferred editor, I suggest that you install either **Visual Studio Code** or **Oni**, which are powerful graphical text editors, or **Neovim** for a console Vim editor.
-
-#### Setting The EDITOR Environment Variable
-
-Whichever text editor you choose, remember to set the EDITOR environment variable in your _~/.bash\_profile_ file, so that this editor is automatically invoked by command-line tools like your version control system. For example, put this line in your profile to make Neovim \(nvim\) the favored text editor:
-
-```bash
-export EDITOR="nvim"
-```
+Installations of macOS include older command-line versions of both **Emacs** and **vim**, as well as TextEdit, a desktop text editor. TextEdit is designed for light-weight word processing, and has no support for programming. Unless you already have a preferred editor, I suggest that you install **Visual Studio Code**, which are powerful graphical text editors.
 
 #### Setting Up Visual Studio Code
 
@@ -296,7 +274,7 @@ Consider installing these extensions:
 * The **Docker** extension
 * **YAML Support**
 
-To make Visual Studio Code your default editor, use this line in your _~/.bash\_profile_ file:
+To make Visual Studio Code your default editor, use this line in your _~/.zshrc_ file:
 
 ```bash
 export EDITOR="code -w"
