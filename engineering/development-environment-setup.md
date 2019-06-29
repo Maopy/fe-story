@@ -1,5 +1,5 @@
 ---
-description: A Modern Front-end Development Environment Setup
+description: A guide to setting up an Apple Mac for DevOps and software development.
 ---
 
 # Development Environment Setup
@@ -15,11 +15,11 @@ To make the trackpad behave correctly, ensure that these settings are enabled:
 
 ### Dock
 
-* _Visual Setting_
+* _Visual Settings_
   * _Position on screen: Left_
   * _Size: Small_
 * _Other settings_
-  * _Reomve workspace auto-switching by running the following command:_
+  * _Remove workspace auto-switching by running the following command:_
 
 ```bash
 $ defaults write com.apple.dock workspaces-auto-swoosh -bool NO
@@ -34,10 +34,34 @@ $ killall Dock # Restart the Dock process
   * Add _Home_ & your _Code Directory_
   * Uncheck all _Shared_ boxes
 
+### Securing the Safari Browser
+
+Whether or not you regularly use Safari, you should open it once, and adjust the settings in case that you use it later.
+
+* _General_
+  * Deselect the option _Open "safe" files after downloading._
+* _Search_
+  * Ensure that _Safari Suggestions_ is not enabled.
+* _Security &gt; Plug-in Settings..._
+  * review the plug-ins and settings.
+
+### Configuring Security
+
+Select _System Preferences &gt; Security & Privacy_, and set the following:
+
+* _General_
+  * Set require a _password after sleep or screen saver begins_ to _immediately_
+* _Advanced..._
+  * Select _Require an administrator password to access system-wide preferences_
+* _Firewall_, click _Turn Firewall On._
+* _Privacy_
+  * Select _Analytics_ and ensure that the options are not enabled.
+
 ### Spotlight
 
 * Uncheck _fonts, images, files_ etc.
 * Uncheck the _keyboard shortcuts_ as we'll be replacing them with _Alfred_
+* _Search Results_, ensure that _Spotlight Suggestions_ is not enabled.
 
 ## Setting Up for Development
 
