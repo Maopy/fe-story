@@ -180,15 +180,11 @@ $ chsh -s /bin/zsh
 
 Zsh users have created some useful additions that integrate with it. One of the cool things you can add is syntax highlighting to color command types.
 
-```bash
-$ brew install zsh-syntax-highlighting
-```
+{% embed url="https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md" %}
 
 Another one is auto suggestions, which remember common commands that you can easily re-run.
 
-```bash
-$ brew install zsh-autosuggestions
-```
+{% embed url="https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md" %}
 
 Add plugins to your shell by adding the name of the plugin to the `plugin` array in your `.zshrc` .
 
