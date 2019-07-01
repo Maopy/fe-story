@@ -154,45 +154,6 @@ ssh-keygen -t rsa -b 4096 -C "Me MyName (MyDevice) <me@mydomain.com>"
 Use 4096-bit RSA keys for all systems. The older DSA standard only supports 1024-bit keys, which are now too small to be considered secure.
 {% endhint %}
 
-### Installing iTerm2
-
-iTerm2 is an open source replacement for Apple's Terminal. It's highly customizable and comes with a lot of useful features.
-
-[https://www.iterm2.com/](https://www.iterm2.com/)
-
-{% hint style="info" %}
-Instead of downloading and installing iTerm2 manually, you can use Homebrew
-
-```bash
-brew cask install iterm2
-```
-{% endhint %}
-
-#### Useful Shortcuts
-
-| shortcut | action | send |
-| :---: | :---: | :---: |
-| ⌘← | _Send Escape Sequence_ | OH |
-| ⌘→ | _Send Escape Sequence_ | OF |
-| ⌥← | _Send Escape Sequence_ | b |
-| ⌥→ | _Send Escape Sequence_ | f |
-
-{% hint style="info" %}
-You may need to edit your config file as well:
-
-#### zsh
-
-{% code-tabs %}
-{% code-tabs-item title="~/.zshrc" %}
-```bash
-bindkey -e
-bindkey "\e\e[C" forward-word
-bindkey "\e\e[D" backward-word
-```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
-{% endhint %}
-
 ### zsh
 
 The Z shell is a Unix shell that is built on top of `bash` with additional features. It's recommended to use `zsh` over bash. It's also highly recommended to install a framework with zsh as it makes dealing with configuration, plugins and themes a lot nicer.
@@ -257,6 +218,43 @@ function mkcd() { mkdir -p "$@" && cd "$_"; }
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
+
+### Installing iTerm2
+
+iTerm2 is an open source replacement for Apple's Terminal. It's highly customizable and comes with a lot of useful features.
+
+[https://www.iterm2.com/](https://www.iterm2.com/)
+
+{% hint style="info" %}
+Instead of downloading and installing iTerm2 manually, you can use Homebrew
+
+```bash
+brew cask install iterm2
+```
+{% endhint %}
+
+#### Useful Shortcuts
+
+| shortcut | action | send |
+| :---: | :---: | :---: |
+| ⌘← | _Send Escape Sequence_ | OH |
+| ⌘→ | _Send Escape Sequence_ | OF |
+| ⌥← | _Send Escape Sequence_ | b |
+| ⌥→ | _Send Escape Sequence_ | f |
+
+{% hint style="info" %}
+You may need to edit your config file as well:
+
+{% code-tabs %}
+{% code-tabs-item title="~/.zshrc" %}
+```bash
+bindkey -e
+bindkey "\e\e[C" forward-word
+bindkey "\e\e[D" backward-word
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+{% endhint %}
 
 ### Text Editors
 
