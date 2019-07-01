@@ -13,6 +13,16 @@ To make the trackpad behave correctly, ensure that these settings are enabled:
 * _System Preferences &gt; Trackpad &gt; Tap to click_
 * _System Preferences &gt; Accessibility &gt; Mouse & Trackpad &gt; Trackpad Options... &gt; Enable dragging: three finger drag_
 
+### Mouse
+
+{% embed url="https://pilotmoon.com/scrollreverser/" %}
+
+### External keyboard
+
+_System Preferences &gt; Keyboard &gt; Modifier Keys..._ and _Select_ your own external keyboard.
+
+Switch _Option Key & Command Key_ configurations.
+
 ### Dock
 
 * _Visual Settings_
@@ -96,12 +106,6 @@ To update the index of available packages, run this command in a terminal window
 
 ```bash
 brew update
-```
-
-Once you have set up Homebrew, use the _brew install_ command to add command-line software to your Mac, and _brew cask install_ to add graphical software. For example, this command installs the Slack app:
-
-```bash
-brew cask install slack
 ```
 
 ### Installing the Git Version Control System
