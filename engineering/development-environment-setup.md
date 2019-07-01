@@ -264,32 +264,11 @@ To install Visual Studio Code, enter this command in a terminal window:
 brew cask install visual-studio-code
 ```
 
-Consider installing these extensions:
-
-* **ESLint** or **TSLint** for JavaScript linter integration
-* **Debugger for Chrome** to debug JavaScript in the Web browser
-* **Git Lens** to enhance the Git support in the user interface
-* The **Docker** extension
-* **YAML Support**
-
 To make Visual Studio Code your default editor, use this line in your _~/.zshrc_ file:
 
 ```bash
 export EDITOR="code -w"
 ```
-
-Visual Studio Code enables telemetry and crash reporting by default. To disable these, set these options in _Preferences &gt; Settings_:
-
-```bash
-"telemetry.enableTelemetry": false
-"telemetry.enableCrashReporter": false
-```
-
-If you would like to enable Vim keybindings in Visual Studio Code, install the **VSCodeVim** extension.
-
-#### Add Oh My Zsh Plugin
-
-[https://github.com/valentinocossar/vscode](https://github.com/valentinocossar/vscode)
 
 ## Setting Up Environments
 
