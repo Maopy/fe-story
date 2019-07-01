@@ -6,24 +6,30 @@ description: A guide to setting up an Apple Mac for DevOps and software developm
 
 ## Do This First!
 
-### Configuring The Trackpad
+### Hardware Configuration
+
+#### Configuring The Trackpad
 
 To make the trackpad behave correctly, ensure that these settings are enabled:
 
 * _System Preferences &gt; Trackpad &gt; Tap to click_
 * _System Preferences &gt; Accessibility &gt; Mouse & Trackpad &gt; Trackpad Options... &gt; Enable dragging: three finger drag_
 
-### Mouse
+#### Configuring The Mouse
+
+To reverse the scroll separately, use this software:
 
 {% embed url="https://pilotmoon.com/scrollreverser/" %}
 
-### External keyboard
+#### External keyboard
 
 _System Preferences &gt; Keyboard &gt; Modifier Keys..._ and _Select_ your own external keyboard.
 
 Switch _Option Key & Command Key_ configurations.
 
-### Dock
+### System software Configuration
+
+#### Dock
 
 * _Visual Settings_
   * _Position on screen: Left_
@@ -36,7 +42,7 @@ $ defaults write com.apple.dock workspaces-auto-swoosh -bool NO
 $ killall Dock # Restart the Dock process
 ```
 
-### Finder Preferences
+#### Finder Preferences
 
 * _General_
   * _New Finder windows show &gt;_ your _Home Directory_
@@ -44,7 +50,9 @@ $ killall Dock # Restart the Dock process
   * Add _Home_ & your _Code Directory_
   * Uncheck all _Shared_ boxes
 
-### Securing the Safari Browser
+### Security Configuration
+
+#### Securing the Safari Browser
 
 Whether or not you regularly use Safari, you should open it once, and adjust the settings in case that you use it later.
 
@@ -55,7 +63,7 @@ Whether or not you regularly use Safari, you should open it once, and adjust the
 * _Security &gt; Plug-in Settings..._
   * review the plug-ins and settings.
 
-### Configuring Security
+#### Configuring Security
 
 Select _System Preferences &gt; Security & Privacy_, and set the following:
 
@@ -65,7 +73,7 @@ Select _System Preferences &gt; Security & Privacy_, and set the following:
   * Select _Require an administrator password to access system-wide preferences_
 * _Firewall_, click _Turn Firewall On._
 
-### Spotlight
+#### Spotlight
 
 * Uncheck _Spotlight Suggestions, fonts, images, files_ etc.
 * Uncheck the _keyboard shortcuts_ as we'll be replacing them with _Alfred._
