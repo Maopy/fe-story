@@ -27,3 +27,7 @@
 
 * [Development Environment Setup](engineering/development-environment-setup.md)
 
+## Performance
+
+* [The cost of JavaScript](performance/the-cost-of-javascript.md)
+
