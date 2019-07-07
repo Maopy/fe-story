@@ -16,3 +16,9 @@
 
 首次可交互时间\(TTI=Time To Interactive\)
 
+改进策略
+
+![](../.gitbook/assets/image%20%281%29.png)
+
+
+
