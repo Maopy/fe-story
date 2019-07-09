@@ -2,7 +2,7 @@
 
 ## 首屏过程
 
-![](../.gitbook/assets/image%20%286%29.png)
+![](../.gitbook/assets/image%20%287%29.png)
 
 浏览器执行的阶段：
 
@@ -57,7 +57,7 @@
 
 ![](../.gitbook/assets/image.png)
 
-![](../.gitbook/assets/image%20%283%29.png)
+![](../.gitbook/assets/image%20%284%29.png)
 
 ### RAIL 模型
 
@@ -130,7 +130,43 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({entryTypes: ['longtask']});
 ```
 
+### 追踪交互延迟
 
+```javascript
+const subscribeBtn = document.querySelector('#subscribe');
+subscribeBtn.addEventListener('click', (event) => {
+  // Event listener logic goes here...
+  const lag = performance.now() - event.timeStamp;
+  if (lag > 100) {
+    // REPORT!!!
+  }
+});
+```
+
+### 追踪 FID
+
+Chrome 提供的 [https://github.com/GoogleChromeLabs/first-input-delay](https://github.com/GoogleChromeLabs/first-input-delay) 
+
+```javascript
+// The perfMetrics object is created by the code that goes in <head>.
+perfMetrics.onFirstInputDelay(function(delay, evt) {
+});
+```
+
+### 新的性能 API 提案
+
+* [https://w3c.github.io/hr-time/](https://w3c.github.io/hr-time/)
+* [https://w3c.github.io/performance-timeline/](https://w3c.github.io/performance-timeline/)
+* [https://w3c.github.io/resource-timing/](https://w3c.github.io/resource-timing/)
+* [https://w3c.github.io/navigation-timing/](https://w3c.github.io/navigation-timing/)
+* [https://w3c.github.io/user-timing/](https://w3c.github.io/user-timing/)
+* [https://w3c.github.io/page-visibility/](https://w3c.github.io/page-visibility/)
+* [https://w3c.github.io/requestidlecallback/](https://w3c.github.io/requestidlecallback/)
+* [https://w3c.github.io/beacon/](https://w3c.github.io/beacon/)
+* [https://w3c.github.io/resource-hints/](https://w3c.github.io/resource-hints/)
+* [https://w3c.github.io/preload/](https://w3c.github.io/preload/)
+* [https://w3c.github.io/server-timing/](https://w3c.github.io/server-timing/)
+* [https://w3c.github.io/longtasks/](https://w3c.github.io/longtasks/)
 
 ## 收集方法
 
@@ -147,6 +183,8 @@ observer.observe({entryTypes: ['longtask']});
 * 更可控的测试环境\(网络、操作系统、浏览器版本、CPU 等等\)，提供更精准的数据
 * 与 RUM 相辅相成
 
+![](../.gitbook/assets/image%20%283%29.png)
+
 ## 优化分析
 
 #### 拉取缓存
@@ -159,13 +197,13 @@ observer.observe({entryTypes: ['longtask']});
 
 一些指标
 
-![](../.gitbook/assets/image%20%285%29.png)
+![](../.gitbook/assets/image%20%286%29.png)
 
 
 
 改进策略
 
-![](../.gitbook/assets/image%20%284%29.png)
+![](../.gitbook/assets/image%20%285%29.png)
 
 ## 参考文献
 
