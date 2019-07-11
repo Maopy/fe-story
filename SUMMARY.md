@@ -30,5 +30,5 @@
 ## Performance
 
 * [The cost of JavaScript](performance/the-cost-of-javascript.md)
-* [Performance of First Screen](performance/performance.md)
+* [User-centric Performance Metrics](performance/performance.md)
 
