@@ -34,19 +34,13 @@
 
 * **耗时较长的任务\(Long Tasks\)** 任何耗时超过 50 毫秒的任务。
 
-指标示意图：
+### 指标示意图
 
 ![](../.gitbook/assets/image.png)
 
 ![](../.gitbook/assets/image%20%285%29.png)
 
 ![](../.gitbook/assets/image%20%282%29.png)
-
-### RAIL 模型
-
-![](../.gitbook/assets/image%20%283%29.png)
-
-{% embed url="https://developers.google.com/web/fundamentals/performance/rail" caption="Measure Performance with the RAIL Model" %}
 
 ## 衡量指标的方法
 
@@ -176,8 +170,8 @@ document.removeEventListener('visibilitychange', window.__trackAbandons)
 
 * [https://w3c.github.io/hr-time/](https://w3c.github.io/hr-time/)
 * [https://w3c.github.io/performance-timeline/](https://w3c.github.io/performance-timeline/)
-* [https://w3c.github.io/resource-timing/](https://w3c.github.io/resource-timing/)
-* [https://w3c.github.io/navigation-timing/](https://w3c.github.io/navigation-timing/)
+* [https://w3c.github.io/resource-timing/](https://w3c.github.io/resource-timing/) 收集文档依赖资源的得性能指标
+* [https://w3c.github.io/navigation-timing/](https://w3c.github.io/navigation-timing/) 收集 HTML 文档的性能指标
 * [https://w3c.github.io/user-timing/](https://w3c.github.io/user-timing/)
 * [https://w3c.github.io/page-visibility/](https://w3c.github.io/page-visibility/)
 * [https://w3c.github.io/requestidlecallback/](https://w3c.github.io/requestidlecallback/)
@@ -203,26 +197,6 @@ document.removeEventListener('visibilitychange', window.__trackAbandons)
 * 与 RUM 相辅相成
 
 ![](../.gitbook/assets/image%20%284%29.png)
-
-## 优化分析
-
-#### 拉取缓存
-
-浏览器缓存策略：
-
-![](../.gitbook/assets/image%20%281%29.png)
-
-
-
-一些指标
-
-![](../.gitbook/assets/image%20%287%29.png)
-
-
-
-改进策略
-
-![](../.gitbook/assets/image%20%286%29.png)
 
 ## 参考文献
 
