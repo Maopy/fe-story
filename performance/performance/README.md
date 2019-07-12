@@ -36,11 +36,11 @@
 
 ### 指标示意图
 
-![](../.gitbook/assets/image.png)
+![](../../.gitbook/assets/image.png)
 
-![](../.gitbook/assets/image%20%285%29.png)
+![](../../.gitbook/assets/image%20%285%29.png)
 
-![](../.gitbook/assets/image%20%282%29.png)
+![](../../.gitbook/assets/image%20%282%29.png)
 
 ## 衡量指标的方法
 
@@ -196,7 +196,7 @@ document.removeEventListener('visibilitychange', window.__trackAbandons)
 * 更可控的测试环境\(网络、操作系统、浏览器版本、CPU 等等\)，提供更精准的数据
 * 与 RUM 相辅相成
 
-![](../.gitbook/assets/image%20%284%29.png)
+![](../../.gitbook/assets/image%20%284%29.png)
 
 ## 参考文献
 

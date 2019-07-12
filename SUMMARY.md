@@ -30,5 +30,6 @@
 ## Performance
 
 * [The cost of JavaScript](performance/the-cost-of-javascript.md)
-* [User-centric Performance Metrics](performance/performance.md)
+* [User-centric Performance Metrics](performance/performance/README.md)
+  * [Understanding Resource Timing](performance/performance/understanding-resource-timing.md)
 
