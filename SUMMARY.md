@@ -32,4 +32,5 @@
 * [The cost of JavaScript](performance/the-cost-of-javascript.md)
 * [User-centric Performance Metrics](performance/performance/README.md)
   * [Understanding Navigation Timings](performance/performance/understanding-resource-timing.md)
+  * [Performance Timeline Level 2](performance/performance/performance-timeline-level-2.md)
 
