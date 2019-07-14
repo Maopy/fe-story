@@ -39,21 +39,78 @@ function getFirstContentfulPaint() {
 
 PerformanceObserver 对象可以根据 `entryType` 值，来通知新的 PerformanceEntry 对象。它的构造函数必须接收一个回调函数，这个回调函数在浏览器分发了新的 `entryType` 值匹配了任一观察者观察中的条目时执行。这个回调函数并不每个 PerformanceEntry 运行一次，也不会在 PerformanceEntry 对象创建时立刻运行。取而代之的是，这些条目在 PerformanceObserver “排队”，而浏览器可以之后再执行这些函数。当回调函数被执行时，所有排队的条目都被传给函数，然后 PerformanceObserver 的队列会被重置。PerformanceObserver 初始状态不会观察任何东西：必须通过调用 `observe()` 函数来指定观察哪类 PerformanceEntry 对象。`observe()` 函数在调用时可以传条目类型的数组或单独的类型字符串，就像下面展示的那样。这些模式不能混用，否则会抛出一个异常。
 
-**`supportedEntryTypes`**
+### **`supportedEntryTypes`**
 
 静态属性 `PerformanceObserver.supportedEntryTypes` 返回浏览器支持的 `entryType` 数组，按照字母表顺序排序。可以用来检测支持的特性。
 
-**`observe(entryTypes)`**
+### **`observe(entryTypes)`**
 
 PerformanceObserver 可以在一次 `observe()` 的调用过程，指定多个 `entryTypes` 的值。然而，这种情况不允许传额外的参数。多次 `observe()` 调用会覆盖之前观察的类型。函数调用的示例：`observer.observe({entryTypes: ['resource', 'navigation']})`。
 
-**`observe(type)`**
+### **`observe(type)`**
 
 PerformanceObserver 在调用 `observe()` 方法时，可以只传一个单独的类型。这种情况可以接收额外的参数。多次 `observe()` 调用会堆叠，除非之前有相同 `type` 的观察被调用了，这时会被覆盖。函数调用的示例：`observer.observe({type: "mark"})`。
 
-**`buffered` 标记**
+### **`buffered` 标记**
 
 这份标准定义了一个可以在 `observe(type)` 使用的参数：`buffered` 标记，默认是未设置的。当这个标记被设置时，浏览器会分发 PerformanceObserver 创建之前缓存的记录，它们会在`observe()` 调用发生之后的第一个回调中被接收。这可以让 web 开发者在方便的时候再注册 PerformanceObserver 而且不会因此错过页面加载早期分发的条目。使用这个标记的示例：`observer.observe({type: "measure", buffered: true})`。
+
+### **`disconnect()`**
+
+在条目不再需要 PerformanceObserver 通知时，调用这个方法。
+
+### **`takeRecords()`**
+
+这个方法返回在 PerformanceObserver 队列中且回调函数还没执行的条目。调用这个方法会清空 PerformanceObserver 的队列。这个方法可以跟 `disconnect()` 配合使用，来确保全部的条目在一个特定的时间被处理。
+
+### 使用 PerformanceObserver
+
+下面的例子打印了全部 [User Timing](https://github.com/w3c/user-timing), [Resource Timing](https://github.com/w3c/resource-timing) 条目，通过使用观察 marks 和 measures 的 PerformanceObserver。
+
+```javascript
+// 打印一个条目的公共方法.
+function logEntry(entry => {
+  const objDict = {
+    "entry type":, entry.entryType,
+    "name": entry.name,
+    "start time":, entry.startTime,
+    "duration": entry.duration
+  };
+  console.log(objDict);
+});
+
+const userTimingObserver = new PerformanceObserver(list => {
+  list.getEntries().forEach(entry => {
+    logEntry(entry);
+  });
+});
+
+// 调用打印全部之前和未来的 User Timing 条目.
+function logUserTiming() {
+  if (!PerformanceObserver.supportedEntryTypes.includes("mark")) {
+    console.log("Marks are not observable");
+  } else {
+    userTimingObserver.observe({type: "mark", buffered: true});
+  }
+  if (!PerformanceObserver.supportedEntryTypes.includes("measure")) {
+    console.log("Measures are not observable");
+  } else {
+    userTimingObserver.observe({type: "measure", buffered: true});
+  }
+}
+
+// 调用停止打印条目.
+function stopLoggingUserTiming() {
+  userTimingObserver.disconnect();
+}
+
+// 调用强制立刻打印队列中的条目.
+function flushLog() {
+  userTimingObserver.takeRecords().forEach(entry => {
+    logEntry(entry);
+  });
+}
+```
 
 
 
