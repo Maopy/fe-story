@@ -1,3 +1,8 @@
+---
+description: >-
+  原文链接：https://docs.google.com/document/d/1GGiI9-7KeY3TPqS3YT271upUVimo-XiL5mwWorDUD4c/preview#
+---
+
 # First CPU Idle & Time to Interactive\(TTI\)
 
 ## 拆分首次可交互指标
