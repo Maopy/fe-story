@@ -208,8 +208,7 @@ To include `env.sh`, open `~/.zshrc` and add the following:
 $ source ~/path/to/env.sh
 ```
 
-{% code-tabs %}
-{% code-tabs-item title="env.sh" %}
+{% code title="env.sh" %}
 ```bash
 #!/bin/zsh
 
@@ -220,8 +219,7 @@ function r() { grep "$1" ${@:2} -R . }
 # Create a folder and move into it in one command
 function mkcd() { mkdir -p "$@" && cd "$_"; }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 ### Installing iTerm2
 
@@ -249,15 +247,13 @@ brew cask install iterm2
 {% hint style="info" %}
 You may need to edit your config file as well:
 
-{% code-tabs %}
-{% code-tabs-item title="~/.zshrc" %}
+{% code title="~/.zshrc" %}
 ```bash
 bindkey -e
 bindkey "\e\e[C" forward-word
 bindkey "\e\e[D" backward-word
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 {% endhint %}
 
 ### Text Editors
