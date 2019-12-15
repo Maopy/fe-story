@@ -39,3 +39,7 @@
 
 * [网络分层](network/wang-luo-fen-ceng.md)
 
+## 小程序
+
+* [小程序性能优化](xiao-cheng-xu/xiao-cheng-xu-xing-neng-you-hua.md)
+
