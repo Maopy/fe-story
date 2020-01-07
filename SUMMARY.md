@@ -18,6 +18,8 @@
   * [3. 对象](javascript/ydkjs/3.-dui-xiang.md)
   * [4. 混合对象“类”](javascript/ydkjs/4.-hun-he-dui-xiang-lei.md)
   * [5. 原型](javascript/ydkjs/5.-yuan-xing.md)
+* [TypeScript](javascript/typescript/README.md)
+  * [Basic](javascript/typescript/basic.md)
 
 ## CSS
 
