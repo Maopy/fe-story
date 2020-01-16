@@ -182,8 +182,97 @@ class Asian implements Human {
   }
   name : string
   eat () {}
+  sleep () {}
 }
+
+interface Man extends Human {
+  run () : void
+}
+
+interface Child {
+  cry () : void
+}
+
+// 接口继承接口
+interface Boy extends Man, Child {}
+
+// 需要实现全部继承的属性
+let boy : Boy = {
+  name: '',
+  run () {},
+  eat () {},
+  cry () {}
+}
+
+class Auto {
+  state = 1
+  // private state2 = 0
+}
+
+interface AutoInterface extends Auto {
+}
+class C implements AutoInterface {
+  state = 1
+}
+class Bus extends Auto implements AutoInterface {}
 ```
+
+## 泛型
+
+泛型：不预先确定的数据类型，具体的类型在使用的时候才能确定。
+
+```typescript
+function log<T> (value : T) : T {
+  console.log(value)
+  return value
+}
+
+log<string>[](['a', 'b'])
+log(['a', 'b']) // 利用 TS 的类型推断
+
+type Log = <T>(value : T) => T
+let myLog : Log = log
+
+interface Log {
+  <T>(value : T) : T
+}
+interface Log<T = string> { // 约束所有接口变量，可以定义默认类型
+  (value : T) : T
+}
+let myLog : Log<number> = log
+myLog(1)
+```
+
+### 泛型类与泛型约束
+
+```typescript
+class Log<T> {
+  run (value : T) {
+    console.log(value)
+    return value
+  }
+}
+let log1 = new Log<number>()
+log1.run(1)
+let log2 = new Log()
+log2.run({ a: 1 }) // 不指定类型时，可以传任意类型
+
+interface Length {
+  length : number
+}
+// 泛型约束
+function log<T extends Length>(value : T) : T {
+  console.log(value, value.length)
+  return value
+}
+log([1])
+log('123')
+log({ length: 1 })
+```
+
+1. 函数和类可以轻松地支持多种类型，增强程序的扩展性；
+2. 不必写多条函数重载，冗长的联合类型声明，增强代码可读性；
+3. 灵活控制类型之间的约束；
 
 
 
