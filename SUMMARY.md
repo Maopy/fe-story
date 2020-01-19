@@ -20,6 +20,7 @@
   * [5. 原型](javascript/ydkjs/5.-yuan-xing.md)
 * [TypeScript](javascript/typescript/README.md)
   * [Basic](javascript/typescript/basic.md)
+  * [Types](javascript/typescript/types.md)
 * [deep clone](javascript/deep-clone.md)
 
 ## CSS
