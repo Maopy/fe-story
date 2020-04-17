@@ -33,6 +33,7 @@
 
 ## Performance
 
+* [次时代 web 前端性能监控](performance/ci-shi-dai-web-qian-duan-xing-neng-jian-kong.md)
 * [The cost of JavaScript](performance/the-cost-of-javascript.md)
 * [User-centric Performance Metrics](performance/performance/README.md)
   * [Understanding Navigation Timings](performance/performance/understanding-resource-timing.md)
