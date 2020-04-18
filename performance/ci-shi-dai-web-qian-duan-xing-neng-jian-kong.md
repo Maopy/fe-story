@@ -204,5 +204,5 @@ private processEntries(list?: PerformanceObserverEntryList):void {
 
 下图为我们自己实现的 LCP 算法与浏览器原生 LCP 返回的对比。以「天天领钱」页面为例，可以看到选取的元素相同，计算的时间误差大概 30ms，基本可以认为准确。![](https://missfresh.feishu.cn/space/api/file/out/U8a5sGelXz1HP8MViZaU9yx5vF4HArOuU1svsvRIUwVaI2ktqG/)
 
-![](../.gitbook/assets/image%20%284%29.png)
+![](../.gitbook/assets/image%20%286%29.png)
 
