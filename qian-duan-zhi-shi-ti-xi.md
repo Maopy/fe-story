@@ -17,7 +17,9 @@
       1. 解决“人”；
       2. 努力在公司争取；
 
-## 学习方法——整理法
+## 学习方法
+
+### 整理法
 
 我们在整理知识的时候，是在知识之间建立一种关系。当把所有知识通过关系串联起来的时候，有些东西想忘都不会忘，因为能够记住相关的知识。
 
@@ -31,6 +33,32 @@
 * 分类关系： 父类是一个集合，每个子类是这个集合的子集； 例如：CSS 简单选择器；
 
 完备性：恰好不多也不少；
+
+### 追溯法
+
+追溯法有助于提高知识的准确性。
+
+#### 线索
+
+**源头**
+
+案例 1，closure 闭包：
+
+先找到一篇还不错的链接：[https://en.wikipedia.org/wiki/Closure\_\(computer\_programming\)](https://en.wikipedia.org/wiki/Closure_%28computer_programming%29)，然后发现了 [Peter J. Landin](https://en.wikipedia.org/wiki/Peter_J._Landin) 这个人最先提出了“闭包”概念。然后，到 Google Scholar 找到了历史的文章：[https://academic.oup.com/comjnl/article/6/4/308/375725](https://academic.oup.com/comjnl/article/6/4/308/375725)；最原始的闭包语言：PAL；
+
+**标准和文档**
+
+**大师**
+
+* Tim Berners-Lee
+* Brendan Eich
+* Bjame Stroustrup
+
+案例 2，面向对象：
+
+案例 3，MVC：
+
+
 
 
 
