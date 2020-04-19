@@ -54,7 +54,7 @@
 * Brendan Eich
 * Bjame Stroustrup
 
-案例 2，面向对象：
+案例 2，面向对象：[https://app.gitbook.com/@maopy/s/fe-story/computer-science/oop](https://app.gitbook.com/@maopy/s/fe-story/computer-science/oop)
 
 案例 3，MVC：
 
