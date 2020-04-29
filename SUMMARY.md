@@ -61,4 +61,5 @@
 ## Computer Science
 
 * [OOP](computer-science/oop.md)
+* [编程语言通识](computer-science/bian-cheng-yu-yan-tong-shi.md)
 
