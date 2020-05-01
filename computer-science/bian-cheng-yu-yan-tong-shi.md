@@ -116,5 +116,59 @@ AtomicExp -> (AddExp) | alphabet
 <factor> ::= ( <expr> ) | Num
 ```
 
+## 图灵完备性
 
+* 命令式——图灵机
+  * goto
+  * if 和 while
+* 声明式——lambda
+  * 递归
+
+## 动态与静态
+
+* 动态
+  * 在用户的设备/在线服务器上
+  * 产品实际运行时
+  * Runtime
+* 静态
+  * 在程序员的设备上
+  * 产品开发时
+  * Compile time
+
+## 类型系统
+
+* 动态类型与静态类型系统
+* 强类型与弱类型
+  * String + Number
+  * String == Boolean
+* 复合类型
+  * 结构体
+  * 函数签名
+* 子类型
+  * 逆变/协变
+
+## 一般命令式编程语言
+
+* Atom
+  * Identifier
+  * Literal
+* Expression
+  * Atom
+  * Operator
+  * Punctuator
+* Statement
+  * Expression
+  * Keyword
+  * Punctuator
+* Structure
+  * Function
+  * Class
+  * Process
+  * Namespace
+  * ...
+* Program
+  * Program
+  * Module
+  * Package
+  * Library
 
