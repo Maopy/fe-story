@@ -24,6 +24,7 @@
   * [Types](javascript/typescript/types.md)
 * [deep clone](javascript/deep-clone.md)
 * [JavaScript 语言](javascript/javascript-yu-yan.md)
+* [Number](javascript/number.md)
 
 ## CSS
 
