@@ -26,6 +26,7 @@
 * [JavaScript Atom](javascript/javascript-yu-yan/README.md)
   * [Number](javascript/javascript-yu-yan/number.md)
   * [String](javascript/javascript-yu-yan/string.md)
+  * [Object API/Grammer](javascript/javascript-yu-yan/object-api-grammer.md)
 * [JavaScript Statement](javascript/javascript-statement.md)
 
 ## CSS
