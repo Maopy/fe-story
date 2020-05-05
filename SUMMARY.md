@@ -57,10 +57,7 @@
 ## 小程序
 
 * [小程序性能优化](xiao-cheng-xu/xiao-cheng-xu-xing-neng-you-hua.md)
-
-## 实践篇
-
-* [小程序工程化](shi-jian-pian/xiao-cheng-xu-gong-cheng-hua.md)
+* [小程序工程化](xiao-cheng-xu/xiao-cheng-xu-gong-cheng-hua.md)
 
 ## Computer Science
 
