@@ -1,4 +1,4 @@
-# JavaScript 词法
+# JavaScript Atom
 
 ### Unicode
 

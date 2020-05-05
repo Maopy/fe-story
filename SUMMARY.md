@@ -23,9 +23,10 @@
   * [Basic](javascript/typescript/basic.md)
   * [Types](javascript/typescript/types.md)
 * [deep clone](javascript/deep-clone.md)
-* [JavaScript 词法](javascript/javascript-yu-yan.md)
+* [JavaScript Atom](javascript/javascript-yu-yan.md)
 * [Number](javascript/number.md)
 * [String](javascript/string.md)
+* [JavaScript Statement](javascript/javascript-statement.md)
 
 ## CSS
 
