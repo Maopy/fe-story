@@ -51,7 +51,9 @@
       </td>
     </tr>
   </tbody>
-</table>## 产生式\(BNF\)
+</table>
+
+## 产生式\(BNF\)
 
 BNF 可以表示 2、3型语法。
 
