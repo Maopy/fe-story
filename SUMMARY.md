@@ -35,6 +35,7 @@
 * [CSS 诞生史](css/css_dan_sheng_shi.md)
 * [CSS 语法](css/css-yu-fa.md)
 * [CSS 属性](css/css-shu-xing.md)
+* [CSS 层叠规则](css/css-ceng-die-gui-ze.md)
 
 ## HTML
 
