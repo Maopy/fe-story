@@ -71,7 +71,13 @@ PS、SVG、Canvas 中都有类似的混合模式。CSS 的 mix-blend-mode 有 19
 
 ## 层叠在 Safari 和 Chrome 的区别
 
+![http://jsfiddle.net/eJsZx/4/](../.gitbook/assets/image%20%2816%29.png)
 
+![http://jsfiddle.net/Lwfrp9q0/](../.gitbook/assets/image%20%2815%29.png)
+
+![](../.gitbook/assets/image%20%2814%29.png)
+
+![](../.gitbook/assets/image%20%2817%29.png)
 
 ### 考虑浏览器为何这么设计？
 
