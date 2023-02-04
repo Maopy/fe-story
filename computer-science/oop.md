@@ -6,9 +6,9 @@ description: 本文是一篇用追溯法探寻面向对象概念的文章
 
 使用了“对象(objects)”和“面向(oriented)”术语的现代意义的面向对象编程语言，最早出现在 1950 年代末和 1960 年代初的 MIT。早在 1960年，在 MIT 计算中心人工智能组，“对象(objects)”就用来指代带有属性(properties)或特征(attributes)的特定的项\[LISP 语言的原子(atoms)]。Alan Kay 后来也证实了，他在 1966 年创立面向对象编程时，思想上受到了 LISP 语言实现细节很深影响。
 
-![LISP I Programmers Manual (1960)](<../.gitbook/assets/image (15).png>)
+![LISP I Programmers Manual (1960)](<../.gitbook/assets/image (5).png>)
 
-![LISP 1.5 Programmer's Manual (1962)](<../.gitbook/assets/image (7).png>)
+![LISP 1.5 Programmer's Manual (1962)](<../.gitbook/assets/image (2).png>)
 
 另一个早期 MIT 的案例是在 1960-61 年，由 Ivan Sutherland 创造的 [Sketchpad](https://en.wikipedia.org/wiki/Sketchpad)。他在 1963 年发表相关论文的技术报告词汇表中，定义了“对象(object)”和“实例(instance)”(相当于类的概念，当时被称为 "master" 或 "definition" )。Sketchpad 提出的 "master" 与 JavaScript 的原型继承有很多共同之处。相同的还有 MIT 的 ALGOL 语言，在数据结构(这种方言里称为 "plexes" )和处理过程\[是后来的 "消息(messages)",  "方法(methods)",  "成员函数(member functions)"这些术语的前身]间建立了一个连接。
 

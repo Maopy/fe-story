@@ -6,7 +6,7 @@ description: 本文将由浅入深剖析 CSS 层叠规则的整条脉络。
 
 ## 缘起
 
-![](../.gitbook/assets/Lark20200809-144601.jpeg)
+![](../.gitbook/assets/lark20200809-144601.jpeg)
 
 在开发 CSS 动画时，遇到了 Safari 和 Chrome 表现不一致的情况，Chrome 表现正常，Safari 却出现了「穿牌」的现象。明明写了 z-index，为什么还会出现这种情况呢？
 
@@ -14,7 +14,7 @@ description: 本文将由浅入深剖析 CSS 层叠规则的整条脉络。
 
 ## 基本规则
 
-![](<../.gitbook/assets/image (16).png>)
+![](<../.gitbook/assets/image (12).png>)
 
 这个图体现了 CSS 页面排版的基本准则：内容(inline)>布局(float)>装饰(background, border...)。
 
@@ -29,7 +29,7 @@ description: 本文将由浅入深剖析 CSS 层叠规则的整条脉络。
 
 你能说清楚为什么下图的元素会是这个层叠顺序么？
 
-![](<../.gitbook/assets/image (4).png>)
+![](<../.gitbook/assets/image (13).png>)
 
 能够产生层叠上下文的场景：
 
@@ -71,13 +71,13 @@ PS、SVG、Canvas 中都有类似的混合模式。CSS 的 mix-blend-mode 有 19
 
 ## 层叠在 Safari 和 Chrome 的区别
 
-![http://jsfiddle.net/eJsZx/4/](<../.gitbook/assets/image (2).png>)
+![http://jsfiddle.net/eJsZx/4/](<../.gitbook/assets/image (16).png>)
 
-![http://jsfiddle.net/Lwfrp9q0/](<../.gitbook/assets/image (10).png>)
+![http://jsfiddle.net/Lwfrp9q0/](<../.gitbook/assets/image (15).png>)
 
-![](<../.gitbook/assets/image (12).png>)
+![](<../.gitbook/assets/image (14).png>)
 
-![](<../.gitbook/assets/image (1).png>)
+![](<../.gitbook/assets/image (17).png>)
 
 ### 考虑浏览器为何这么设计？
 

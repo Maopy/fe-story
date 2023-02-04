@@ -22,7 +22,7 @@
 
 这个提案缺少一个有意思的东西就是单位，所有数字对应的单位决定于他们使用的上下文（例如字体的大小都是以像素为单位的）。这可以说明 RRP 设计的目的是作为“一系列指导渲染的指示或者建议的集合”，而不是作为标准。这是值得考虑的，因为同一份样式表必须在 common line mode 浏览器和图形浏览器（例如 \[Lynx]\([https://en.wikipedia.org/wiki/Lynx\_(web\_browser)）都能正常工作，后一种浏览器变得越来越流行。](https://en.wikipedia.org/wiki/Lynx\_\(web\_browser\)%EF%BC%89%E9%83%BD%E8%83%BD%E6%AD%A3%E5%B8%B8%E5%B7%A5%E4%BD%9C%EF%BC%8C%E5%90%8E%E4%B8%80%E7%A7%8D%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%98%E5%BE%97%E8%B6%8A%E6%9D%A5%E8%B6%8A%E6%B5%81%E8%A1%8C%E3%80%82)
 
-![](../.gitbook/assets/css诞生史-1.png)
+![](../.gitbook/assets/css-dan-sheng-shi-1.png)
 
 有趣的是，RRP 包含设置列布局的方式，这个特性直到2011年才引入到 CSS 中。例如，3列每列80单位就是下面这样子：
 
@@ -46,7 +46,7 @@
 
 反直觉的是，Mosaic 并不是第一个图形化的浏览器。[ViolaWWW](https://en.wikipedia.org/wiki/ViolaWWW) 要比它还早，Pei-Yuan Wei 起初花了四天时间写出的图形化的浏览器。
 
-![](../.gitbook/assets/css诞生史-2.png)
+![](../.gitbook/assets/css-dan-sheng-shi-2.png)
 
 Pei-Yuan Wei 创建了一个[样式表语言](http://1997.webhistory.org/www.lists/www-talk.1993q4/0264.html)，支持某种嵌套式的结构，这已经被我们用在了今天的 CSS 之中：
 

@@ -265,6 +265,10 @@ To make Visual Studio Code your default editor, use this line in your _\~/.zshrc
 export EDITOR="code -n -w"
 ```
 
+{% embed url="https://www.jetbrains.com/lp/mono/" %}
+
+{% embed url="https://github.com/microsoft/cascadia-code" %}
+
 ### Setting Up Environments
 
 #### Node.js for JavaScript Development
