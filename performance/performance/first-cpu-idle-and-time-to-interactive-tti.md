@@ -3,16 +3,15 @@ description: >-
   原文链接：https://docs.google.com/document/d/1GGiI9-7KeY3TPqS3YT271upUVimo-XiL5mwWorDUD4c/preview#
 ---
 
-# First CPU Idle & Time to Interactive\(TTI\)
+# First CPU Idle & Time to Interactive(TTI)
 
 ## 拆分首次可交互指标
 
 关于首次可交互指标应该如何被定义，有两种思想流派：
 
-1. 首次可交互是网站首个最低程度可交互的时间点：足够多（但可能不是全部）在屏幕上展示
+1.  首次可交互是网站首个最低程度可交互的时间点：足够多（但可能不是全部）在屏幕上展示
 
-   的 UI 组件是可交互的，并且页面响应用户输入的平均时间是合理的，做不到每次都立即响应也是可接受的。
-
+    的 UI 组件是可交互的，并且页面响应用户输入的平均时间是合理的，做不到每次都立即响应也是可接受的。
 2. 首次可交互是网站首个完全加载且交互流畅的时间点 —— 不仅页面上的每个元素都是可交互的，而且页面严格地满足 RAIL 准则：页面在每 50 毫秒内就将控制返回给主线程，给浏览器足够的空间保证交互过程流畅。
 
 用相同的定义去满足两个阵营是不可行的：倾向于后者的人认为前者的定义过于学术，没有优化的价值；倾向于前者的人认为第二个定义过于宽松没有优化的意义。
@@ -46,7 +45,7 @@ description: >-
 
 这是对于稳定性的重要属性，这就是为什么**反向搜索网络+主线程静默**是更推荐的定义。
 
-![](https://docs.google.com/drawings/d/sBx_jhCVHUGaUaOGgkTReXg/image?w=926&h=518&rev=500&ac=1&parent=1GGiI9-7KeY3TPqS3YT271upUVimo-XiL5mwWorDUD4c)
+![](https://docs.google.com/drawings/d/sBx\_jhCVHUGaUaOGgkTReXg/image?w=926\&h=518\&rev=500\&ac=1\&parent=1GGiI9-7KeY3TPqS3YT271upUVimo-XiL5mwWorDUD4c)
 
 首次可交互间定义的基本概念是，我们查找在 5 秒时间内窗口 W 的网络几乎是静默的（给定时间内不超过 2 个网络请求）并且没有超过 50 毫秒的任务。然后我们找到这个窗口最后一个长时任务，并称这个任务结束的时间为可交互时间。
 
@@ -64,8 +63,8 @@ _基于 100 个流行站点的可变性研究，推荐的定义在 **82%** 的�
 
 这些研究的数据：
 
-* [**All graphs**](http://deepanjan.me/tti-variability-v2/pessimistic/generated_graphs/allgraphs.html)
-* 全部判断的 [**Spreadsheet**](https://docs.google.com/a/chromium.org/spreadsheets/d/13z4ILDw_BLU59yhUmYfi-es-pJIcZ1uKtD2Vy13wO1o/edit?usp=sharing#gid=1544954469)**.**
+* [**All graphs**](http://deepanjan.me/tti-variability-v2/pessimistic/generated\_graphs/allgraphs.html)
+* 全部判断的 [**Spreadsheet**](https://docs.google.com/a/chromium.org/spreadsheets/d/13z4ILDw\_BLU59yhUmYfi-es-pJIcZ1uKtD2Vy13wO1o/edit?usp=sharing#gid=1544954469)**.**
 
 ## 首次 CPU 空闲 :: 正确性
 
@@ -77,38 +76,37 @@ _基于 100 个流行站点的可变性研究，推荐的定义在 **82%** 的�
 对于任何我们提出的首次 CPU 空闲的定义，我们希望：
 
 1. 它产生的值在我们全部 25 个轨迹标注中都在合理区域。
-2. 首次 CPU 空闲时间和可交互时间的差值是尽可能大的。 任何对于这个差值的测量都是有效的 —— 我们会使用 25 个网站的差值的和，后文称总差值。
+2. 首次 CPU 空闲时间和可交互时间的差值是尽可能大的。\
+   任何对于这个差值的测量都是有效的 —— 我们会使用 25 个网站的差值的和，后文称总差值。
 
 现在介绍几个首次 CPU 空闲时间的候选定义，并通过我们的测试轨迹检验它们。
 
-**备注：首次 CPU 空闲时间的下边界在 DOMContentLoadedEnd** 
+**备注：首次 CPU 空闲时间的下边界在 DOMContentLoadedEnd**&#x20;
 
 DOMContentLoadedEnd 是所有 DOMContentLoaded 事件监听函数执行完成的时间点。在这个时间点之前在网页里面注册事件监听器是非常罕见的。一小部分网站在一些我们实验的首次 CPU 空闲的定义过早的触发了，因为那些定义只观察了长时任务和网络活动（而不是说有多少事件监听器被注册了），而有时在加载过程中的头 5 到 10 秒都没有长时任务，我们在 FMP 时触发首次 CPU 空闲时间，此时网站通常还没有准备好处理用户输入。我们发现如果使用 `max(DOMContentLoadedEnd, 首次 CPU 空闲)` 作为最终的首次 CPU 空闲时间值，这个值就回到了合理区域。等待 DOMContentLoadedEnd 再声称首次 CPU 空闲是明智的，所以后文介绍的全部定义的下边界都在 DOMContentLoadedEnd。
 
 定义 1：正向搜索 5 秒没有长时任务
 
-![](https://docs.google.com/drawings/d/sbT0FfF-HKzP4iOxM3K2q5g/image?w=926&h=329&rev=119&ac=1&parent=1GGiI9-7KeY3TPqS3YT271upUVimo-XiL5mwWorDUD4c)
+![](https://docs.google.com/drawings/d/sbT0FfF-HKzP4iOxM3K2q5g/image?w=926\&h=329\&rev=119\&ac=1\&parent=1GGiI9-7KeY3TPqS3YT271upUVimo-XiL5mwWorDUD4c)
 
 定义 2：宽松的比例
 
-![](https://docs.google.com/drawings/d/svaQ1D6_JQtLI6huqXovTpQ/image?w=926&h=379&rev=346&ac=1&parent=1GGiI9-7KeY3TPqS3YT271upUVimo-XiL5mwWorDUD4c)
+![](https://docs.google.com/drawings/d/svaQ1D6\_JQtLI6huqXovTpQ/image?w=926\&h=379\&rev=346\&ac=1\&parent=1GGiI9-7KeY3TPqS3YT271upUVimo-XiL5mwWorDUD4c)
 
 定义 3：宽恕独立的任务
 
-![](https://docs.google.com/drawings/d/sEU5q1BBd4CP8H-z-QESA6w/image?w=926&h=384&rev=532&ac=1&parent=1GGiI9-7KeY3TPqS3YT271upUVimo-XiL5mwWorDUD4c)
+![](https://docs.google.com/drawings/d/sEU5q1BBd4CP8H-z-QESA6w/image?w=926\&h=384\&rev=532\&ac=1\&parent=1GGiI9-7KeY3TPqS3YT271upUVimo-XiL5mwWorDUD4c)
 
 定义 4：合并宽松比例和独立任务
 
-![](https://docs.google.com/drawings/d/smbX1M0RFgLnaTbLCEB6ldQ/image?w=926&h=452&rev=35&ac=1&parent=1GGiI9-7KeY3TPqS3YT271upUVimo-XiL5mwWorDUD4c)
+![](https://docs.google.com/drawings/d/smbX1M0RFgLnaTbLCEB6ldQ/image?w=926\&h=452\&rev=35\&ac=1\&parent=1GGiI9-7KeY3TPqS3YT271upUVimo-XiL5mwWorDUD4c)
 
 **定义 4 是我们目前最推荐的。**
 
-  
+\
 
 
-\*\*\*\*
+****
 
-  
-  
-
-
+\
+\

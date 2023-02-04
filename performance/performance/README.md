@@ -2,45 +2,50 @@
 
 ## 以用户为中心的性能指标
 
-### 是否发生？\(Visual metrics\)
+### 是否发生？(Visual metrics)
 
-* 首次绘制\(FP=First Paint\) 标记浏览器渲染_任何_在视觉上不同于导航前屏幕内容之内容的时间点。
-* **首次有内容绘制\(FCP=First Contentful Paint\)** 浏览器渲染来自 DOM 第一位内容的时间点，该内容可能是文本、图像、SVG 甚至 `<canvas>` 元素。
+* 首次绘制(FP=First Paint)\
+  标记浏览器渲染_任何_在视觉上不同于导航前屏幕内容之内容的时间点。
+* **首次有内容绘制(FCP=First Contentful Paint)**\
+  浏览器渲染来自 DOM 第一位内容的时间点，该内容可能是文本、图像、SVG 甚至 `<canvas>` 元素。
 
-### 是否有用？\(Interactive\)
+### 是否有用？(Interactive)
 
-* **首次有效绘制\(FMP=First Meaningful Paint\)**  
-  “有效”这一概念很难通用于所有网页的方式规范化（因此尚不存在任何规范），但是网页开发者自己很清楚其页面的哪些部分对用户最为有用。  
-  定义：主要内容绘制完成
+*   **首次有效绘制(FMP=First Meaningful Paint)**\
+    “有效”这一概念很难通用于所有网页的方式规范化（因此尚不存在任何规范），但是网页开发者自己很清楚其页面的哪些部分对用户最为有用。\
+    定义：主要内容绘制完成
 
-  不作数的：
+    不作数的：
 
-  * loading 态
-  * FOUC\(A flash of unstyled content\)
-  * 只渲染了导航或头部
+    * loading 态
+    * FOUC(A flash of unstyled content)
+    * 只渲染了导航或头部
+* **主角元素耗时(Hero Element Timing)**\
+  ****定义：网页“最重要的部分”绘制完成。
 
-* **主角元素耗时\(Hero Element Timing\)** 定义：网页“最重要的部分”绘制完成。
+### 是否可用？(是否能够操作页面了)
 
-### 是否可用？\(是否能够操作页面了\)
-
-* 视觉准备\(Visual Ready\)
-* **首次可交互时间\(TTI=Time To Interactive\)** 应用已进行视觉渲染并能可靠响应用户输入的时间点。TTI 指标可识别页面初始 JavaScript 已加载且主线程处于空闲状态（没有耗时较长的任务）的时间点。
+* 视觉准备(Visual Ready)
+* **首次可交互时间(TTI=Time To Interactive)**\
+  应用已进行视觉渲染并能可靠响应用户输入的时间点。TTI 指标可识别页面初始 JavaScript 已加载且主线程处于空闲状态（没有耗时较长的任务）的时间点。
   * FMP 已完成
   * 85%的视觉完备
   * DOMContentLoaded 被触发
-* **首次输入延迟\(FID=First Input Delay\)** 定义：从用户首次产生交互到浏览器实际给出反馈的延迟时间
+* **首次输入延迟(FID=First Input Delay)**\
+  ****定义：从用户首次产生交互到浏览器实际给出反馈的延迟时间
 
-### 是否令人愉快？\(是否没有滞后和卡顿\)
+### 是否令人愉快？(是否没有滞后和卡顿)
 
-* **耗时较长的任务\(Long Tasks\)** 任何耗时超过 50 毫秒的任务。
+* **耗时较长的任务(Long Tasks)**\
+  ****任何耗时超过 50 毫秒的任务。
 
 ### 指标示意图
 
+![](<../../.gitbook/assets/image (8).png>)
+
+![](<../../.gitbook/assets/image (17).png>)
+
 ![](../../.gitbook/assets/image.png)
-
-![](../../.gitbook/assets/image%20%288%29.png)
-
-![](../../.gitbook/assets/image%20%283%29.png)
 
 ## 衡量指标的方法
 
@@ -62,7 +67,7 @@ observer.observe({entryTypes: ['paint']})
 ```
 
 {% hint style="info" %}
-必须确保 PerformanceObserver 注册在 &lt;head&gt; 元素且位于任何样式表的前面，这样才会在 FP/FCP 时触发。
+必须确保 PerformanceObserver 注册在 \<head> 元素且位于任何样式表的前面，这样才会在 FP/FCP 时触发。
 
 实现  [Performance Observer 规范](https://w3c.github.io/performance-timeline/) Level 2 之后就不必如此了，因为它引入了 [`buffered`](https://w3c.github.io/performance-timeline/#dom-performanceobserverinit-%20%20buffered) 标记，可用于访问 `PerformanceObserver` 实例创建之前排队的性能条目。
 {% endhint %}
@@ -138,7 +143,7 @@ subscribeBtn.addEventListener('click', (event) => {
 
 ### 追踪 FID
 
-Chrome 提供的 [https://github.com/GoogleChromeLabs/first-input-delay](https://github.com/GoogleChromeLabs/first-input-delay) 
+Chrome 提供的 [https://github.com/GoogleChromeLabs/first-input-delay](https://github.com/GoogleChromeLabs/first-input-delay)&#x20;
 
 ```javascript
 // The perfMetrics object is created by the code that goes in <head>.
@@ -183,7 +188,7 @@ document.removeEventListener('visibilitychange', window.__trackAbandons)
 
 ## 收集方法
 
-### 实际用户数据\(RUM=Real User Measurements\)
+### 实际用户数据(RUM=Real User Measurements)
 
 局限：
 
@@ -191,15 +196,14 @@ document.removeEventListener('visibilitychange', window.__trackAbandons)
 * 用户实际体验因素过于复杂，很难区分具体受哪一因素影响
 * 噪声数据较多，需要统计技巧
 
-### 实验环境数据\(synthetic testing\)
+### 实验环境数据(synthetic testing)
 
-* 更可控的测试环境\(网络、操作系统、浏览器版本、CPU 等等\)，提供更精准的数据
+* 更可控的测试环境(网络、操作系统、浏览器版本、CPU 等等)，提供更精准的数据
 * 与 RUM 相辅相成
 
-![](../../.gitbook/assets/image%20%287%29.png)
+![](<../../.gitbook/assets/image (3).png>)
 
 ## 参考文献
 
-*  [https://phabricator.wikimedia.org/phame/live/7/post/117/performance\_testing\_in\_a\_controlled\_lab\_environment\_-\_the\_metrics/](https://phabricator.wikimedia.org/phame/live/7/post/117/performance_testing_in_a_controlled_lab_environment_-_the_metrics/) 指标定义相关
+* &#x20;[https://phabricator.wikimedia.org/phame/live/7/post/117/performance\_testing\_in\_a\_controlled\_lab\_environment\_-\_the\_metrics/](https://phabricator.wikimedia.org/phame/live/7/post/117/performance\_testing\_in\_a\_controlled\_lab\_environment\_-\_the\_metrics/) 指标定义相关
 * ​
-

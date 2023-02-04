@@ -18,11 +18,11 @@
   @BODY fo(fa=he,si=18)
 ```
 
-看不懂这段代码也很正常。在没有 gzip，网络传输速度只有 14.4k 的时代，尽力压缩新格式的大小是非常合理的。这段规则的实际上是设置字体（font family -&gt; `fa`）为helvetica（`he`），字号（font size -&gt; `si`）为 18 像素。
+看不懂这段代码也很正常。在没有 gzip，网络传输速度只有 14.4k 的时代，尽力压缩新格式的大小是非常合理的。这段规则的实际上是设置字体（font family -> `fa`）为helvetica（`he`），字号（font size -> `si`）为 18 像素。
 
-这个提案缺少一个有意思的东西就是单位，所有数字对应的单位决定于他们使用的上下文（例如字体的大小都是以像素为单位的）。这可以说明 RRP 设计的目的是作为“一系列指导渲染的指示或者建议的集合”，而不是作为标准。这是值得考虑的，因为同一份样式表必须在 common line mode 浏览器和图形浏览器（例如 \[Lynx\]\([https://en.wikipedia.org/wiki/Lynx\_\(web\_browser\)）都能正常工作，后一种浏览器变得越来越流行。](https://en.wikipedia.org/wiki/Lynx_%28web_browser%29）都能正常工作，后一种浏览器变得越来越流行。)
+这个提案缺少一个有意思的东西就是单位，所有数字对应的单位决定于他们使用的上下文（例如字体的大小都是以像素为单位的）。这可以说明 RRP 设计的目的是作为“一系列指导渲染的指示或者建议的集合”，而不是作为标准。这是值得考虑的，因为同一份样式表必须在 common line mode 浏览器和图形浏览器（例如 \[Lynx]\([https://en.wikipedia.org/wiki/Lynx\_(web\_browser)）都能正常工作，后一种浏览器变得越来越流行。](https://en.wikipedia.org/wiki/Lynx\_\(web\_browser\)%EF%BC%89%E9%83%BD%E8%83%BD%E6%AD%A3%E5%B8%B8%E5%B7%A5%E4%BD%9C%EF%BC%8C%E5%90%8E%E4%B8%80%E7%A7%8D%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%98%E5%BE%97%E8%B6%8A%E6%9D%A5%E8%B6%8A%E6%B5%81%E8%A1%8C%E3%80%82)
 
-![](../.gitbook/assets/css-dan-sheng-shi-1.png)
+![](../.gitbook/assets/css诞生史-1.png)
 
 有趣的是，RRP 包含设置列布局的方式，这个特性直到2011年才引入到 CSS 中。例如，3列每列80单位就是下面这样子：
 
@@ -38,7 +38,7 @@
 
 ## Viola 以及原始浏览器之战
 
-&gt;
+\>
 
 > > 现在台面上已经有多个样式表的提案，为什么你不选其中一个实现之？只要正确地实现了问题就将得到解决。
 >
@@ -46,7 +46,7 @@
 
 反直觉的是，Mosaic 并不是第一个图形化的浏览器。[ViolaWWW](https://en.wikipedia.org/wiki/ViolaWWW) 要比它还早，Pei-Yuan Wei 起初花了四天时间写出的图形化的浏览器。
 
-![](../.gitbook/assets/css-dan-sheng-shi-2.png)
+![](../.gitbook/assets/css诞生史-2.png)
 
 Pei-Yuan Wei 创建了一个[样式表语言](http://1997.webhistory.org/www.lists/www-talk.1993q4/0264.html)，支持某种嵌套式的结构，这已经被我们用在了今天的 CSS 之中：
 
@@ -68,7 +68,7 @@ Pei-Yuan Wei 创建了一个[样式表语言](http://1997.webhistory.org/www.lis
   <LINK REL="STYLE" HREF="URL_to_a_stylesheet">
 ```
 
-遗憾的是，ViolaWWW 只能在 [X Window System](https://en.wikipedia.org/wiki/X_Window_System) 下工作，后者只在 Unix 系统上受欢迎。当 Mosaic 移植到到 Windows 后，Viola 就消失不见了。
+遗憾的是，ViolaWWW 只能在 [X Window System](https://en.wikipedia.org/wiki/X\_Window\_System) 下工作，后者只在 Unix 系统上受欢迎。当 Mosaic 移植到到 Windows 后，Viola 就消失不见了。
 
 ## Web 之前的样式表
 
@@ -157,7 +157,7 @@ CSS 并没有包含父选择符（一种用来定义包含特定子节点的节�
 
 一个父选择器意味着随着 HTML 文档的加载样式可能会有变化。像 DSSSL 这样的语言，如果被完全实现，因为它们自己可以操作文档，所以在开始渲染时，页面很可能是不可用的。
 
-第一个贡献者 Bert Bos，在1995年3月[提出](http://people.opera.com/howcome/2006/phd/archive/odur.let.rug.nl/~bert/stylesheets.html)了这个问题，并给出了一个工作良好的语言，他的提议中包含了“smiley”表情 :-\) 的一个早期版本。
+第一个贡献者 Bert Bos，在1995年3月[提出](http://people.opera.com/howcome/2006/phd/archive/odur.let.rug.nl/\~bert/stylesheets.html)了这个问题，并给出了一个工作良好的语言，他的提议中包含了“smiley”表情 :-) 的一个早期版本。
 
 这枚语言一定程度上来说是“面向对象的”：
 
@@ -178,7 +178,7 @@ CSS 并没有包含父选择符（一种用来定义包含特定子节点的节�
 
 在上例中，把超链接的`HREF`属性设置为它的目的地址。像这种可以在样式表中控制元素的行为的想法在多个提案中非常流行。在还没有 JavaScript 出现的日子里，并没有什么可以控制元素的方法，因此这些新的提案看上去是合理的。
 
-其中一个函数式的[提案](http://people.opera.com/howcome/2006/phd/archive/tigger.cc.uic.edu/~cmsmcq/style-primitives.html)，也同样包含类似的行为。这个提案由名为 C.M. Sperberg-McQueen 的绅士提出：
+其中一个函数式的[提案](http://people.opera.com/howcome/2006/phd/archive/tigger.cc.uic.edu/\~cmsmcq/style-primitives.html)，也同样包含类似的行为。这个提案由名为 C.M. Sperberg-McQueen 的绅士提出：
 
 ```css
   (style a
@@ -257,7 +257,7 @@ CSS 并没有包含父选择符（一种用来定义包含特定子节点的节�
 
 用户可以控制给到页面作者建议样式多少权重，就如提案中的一个 ASCII 图表表示的那样：
 
-```text
+```
     User             Author
 Font   o——x———————o 64%
 Color  o-x—————————o 90%
@@ -336,4 +336,3 @@ Internet Explorer 3 以发布时带着对 CSS 的支持（有可能有点糟糕�
 ## 参考文献
 
 [http://qianduan.guru/2016/07/26/The-Languages-Which-Almost-Became-CSS/](http://qianduan.guru/2016/07/26/The-Languages-Which-Almost-Became-CSS/) [https://eager.io/blog/the-languages-which-almost-were-css/](https://eager.io/blog/the-languages-which-almost-were-css/)
-

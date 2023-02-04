@@ -27,7 +27,7 @@
 
 2017 年 5 月，Chrome Lighthouse 团队提出了以用户真实体验为中心的新性能指标，与下一代的 Performance API。
 
-目前最新的进展，2019 年 11 月 11 日，Chrome Developer Summit 大会上，提出了 **LCP\(最大内容渲染\)**、**TBT\(页面阻塞总时长\)**、**CLS\(累积布局位移\)** 三个新指标与之前定义的 **FCP\(首次有内容绘制\)** 成为未来前端性能监控的主要指标与 Lighthouse 分数计算的新规则。
+目前最新的进展，2019 年 11 月 11 日，Chrome Developer Summit 大会上，提出了 **LCP(最大内容渲染)**、**TBT(页面阻塞总时长)**、**CLS(累积布局位移)** 三个新指标与之前定义的 **FCP(首次有内容绘制)** 成为未来前端性能监控的主要指标与 Lighthouse 分数计算的新规则。
 
 ## Performance Observer API 介绍
 
@@ -74,21 +74,22 @@ observer.observe({entryTypes: ['paint', 'largest-contentful-paint']})
 
 其中 ​`paint`​ 类型会返回 ​`PerformancePaintTiming`​ 类的值，值一共有 2 种： ​`first-paint`​ 和 ​`first-contentful-paint`​，分别表示浏览器绘制第一个元素的时间戳和浏览器绘制第一个有内容元素的时间戳。
 
-而 LCP 这个类型是 Chrome 在 2019 年 9 月的 77 版本刚刚支持的：[https://developers.google.com/web/updates/2019/09/nic77\#lcp](https://developers.google.com/web/updates/2019/09/nic77#lcp)  
+而 LCP 这个类型是 Chrome 在 2019 年 9 月的 77 版本刚刚支持的：[https://developers.google.com/web/updates/2019/09/nic77#lcp](https://developers.google.com/web/updates/2019/09/nic77#lcp) &#x20;
 
 上面的性能指标的文章提到了，LCP 是作为首屏时间 FMP 的替代品被提出的，他的计算算法在 ​[LCP「标准化」算法](https://missfresh.feishu.cn/space/doc/doccnHBN876hP3IvQWu43mNkk1f)​ 中有详细介绍。大致概括如下：
 
 1. 给每个新加入的节点添加标记，记录对应时间戳；
 2. 当节点变化趋于稳定或达到阈值之后，结束监听；
 3. 根据当前所有节点计算评分（元素在视口内的尺寸 \* 权重），得到主角元素；
-4. 如果主角元素是普通元素则取该元素加入时的时间点为 LCP； 如果主角元素是媒体元素，则取媒体资源下载完的时间为 LCP。
+4. 如果主角元素是普通元素则取该元素加入时的时间点为 LCP；\
+   如果主角元素是媒体元素，则取媒体资源下载完的时间为 LCP。
 
 ## 未来已来 —— Polyfill 实现
 
-正如 ES Module 时代不再需要 AMD & CMD，次时代的 web 前端性能监控 API 只需要 ​Performance Observer API​。如果浏览器不支持，那就写个 polyfill！  
-[Chromium 实现](https://github.com/chromium/chromium/blob/master/third_party/blink/renderer/core/timing/performance_observer.cc)   
-[node.js 实现](https://github.com/nodejs/node/blob/master/lib/perf_hooks.js)   
-Maopy 的实现：[https://github.com/Maopy/split-time](https://github.com/Maopy/split-time)  
+正如 ES Module 时代不再需要 AMD & CMD，次时代的 web 前端性能监控 API 只需要 ​Performance Observer API​。如果浏览器不支持，那就写个 polyfill！\
+[Chromium 实现](https://github.com/chromium/chromium/blob/master/third\_party/blink/renderer/core/timing/performance\_observer.cc) \
+[node.js 实现](https://github.com/nodejs/node/blob/master/lib/perf\_hooks.js) \
+Maopy 的实现：[https://github.com/Maopy/split-time](https://github.com/Maopy/split-time)\
 \* Split-time 项目命名取自赛跑运动中「分段计时」的概念。
 
 ### 设计
@@ -105,10 +106,10 @@ Maopy 的实现：[https://github.com/Maopy/split-time](https://github.com/Maopy
 
 #### 名词​
 
-`PerformanceObserver`​ 不用说了；  
-​`entry`​ ​`PerformanceEntry`​ 类型，性能条目；​  
-`entryTypes`​ 性能条目类型，就是上面提到的 10 种；  
-​`taskQueue`​ 观察者有一个全局的任务队列，负责收集性能条目，并控制合适的时机调用回调函数，返回这些值；​  
+`PerformanceObserver`​ 不用说了；\
+​`entry`​ ​`PerformanceEntry`​ 类型，性能条目；​\
+`entryTypes`​ 性能条目类型，就是上面提到的 10 种；\
+​`taskQueue`​ 观察者有一个全局的任务队列，负责收集性能条目，并控制合适的时机调用回调函数，返回这些值；​\
 `buffer`​ 每个观察者即将返回的性能条目缓冲区
 
 ### 实现
@@ -204,5 +205,4 @@ private processEntries(list?: PerformanceObserverEntryList):void {
 
 下图为我们自己实现的 LCP 算法与浏览器原生 LCP 返回的对比。以「天天领钱」页面为例，可以看到选取的元素相同，计算的时间误差大概 30ms，基本可以认为准确。![](https://missfresh.feishu.cn/space/api/file/out/U8a5sGelXz1HP8MViZaU9yx5vF4HArOuU1svsvRIUwVaI2ktqG/)
 
-![](../.gitbook/assets/image%20%286%29.png)
-
+![](<../.gitbook/assets/image (6).png>)
