@@ -17,17 +17,17 @@ Log in once, run Software Update, and ensure that the operating system is at the
 To make the trackpad behave correctly, ensure that these settings are enabled:
 
 * _System Preferences > Trackpad > Tap to click_
-* _System Preferences > Accessibility > Mouse & Trackpad > Trackpad Options... > Enable dragging: three finger drag_
+* _System Preferences > Accessibility > Pointer Control > Trackpad Options... > Use trackpad for dragging > Three Finger Drag_
 
-#### Configuring The Mouse
+#### ~~Configuring The Mouse~~
 
-_System Preferences > Mouse > Turn Natural scroling off_
+~~_System Preferences > Mouse > Turn Natural scroling off_~~
 
-#### External keyboard
+#### ~~External keyboard~~
 
-_System Preferences > Keyboard > Keyboard Shortcuts... > Modifier Keys_ and _Select_ your own external keyboard.
+~~_System Preferences > Keyboard > Keyboard Shortcuts... > Modifier Keys_ and _Select_ your own external keyboard.~~
 
-Switch _Option Key & Command Key_ configurations.
+~~Switch _Option Key & Command Key_ configurations.~~
 
 ### Configuring Security
 
