@@ -53,17 +53,13 @@ Choose one of the following:
 
 The package manager for macOS.
 
-Bash
-
-```
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 Add Homebrew to PATH: (Follow the instructions in the terminal output after installation, usually looks like this):
 
-Bash
-
-```
+```bash
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
@@ -74,25 +70,19 @@ macOS uses Zsh by default. We will use Starship (written in Rust) for the prompt
 
 Install Starship & Tools:
 
-Bash
-
-```
+```bash
 brew install starship
 ```
 
 Configure `~/.zshrc`: Open your config file:
 
-Bash
-
-```
+```bash
 nano ~/.zshrc
 ```
 
 Add this line to the end:
 
-Bash
-
-```
+```bash
 eval "$(starship init zsh)"
 ```
 
@@ -100,9 +90,7 @@ eval "$(starship init zsh)"
 
 Replace legacy Unix commands with modern, faster alternatives.
 
-Bash
-
-```
+```bash
 brew install eza bat zoxide ripgrep fzf
 ```
 
@@ -113,9 +101,7 @@ brew install eza bat zoxide ripgrep fzf
 
 Add these aliases to your `~/.zshrc` to make them permanent:
 
-Bash
-
-```
+```bash
 # Modern Aliases
 alias ls="eza --icons"
 alias ll="eza -l --icons --git"
@@ -132,9 +118,7 @@ eval "$(zoxide init zsh)"
 
 #### 1. Configure Git
 
-Bash
-
-```
+```bash
 git config --global user.name "Your Name"
 git config --global user.email "you@your-domain.com"
 git config --global init.defaultBranch main
@@ -145,17 +129,13 @@ git config --global color.ui auto
 
 We now use Ed25519 keys (more secure and compact than RSA).
 
-Bash
-
-```
+```bash
 ssh-keygen -t ed25519 -C "you@your-domain.com"
 ```
 
 Start the ssh-agent:
 
-Bash
-
-```
+```bash
 eval "$(ssh-agent -s)"
 ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 ```
@@ -164,9 +144,7 @@ ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 
 Install Lazygit. It is a terminal UI for git commands—much faster than a GUI app but more visual than raw CLI.
 
-Bash
-
-```
+```bash
 brew install lazygit
 ```
 
@@ -178,33 +156,25 @@ brew install lazygit
 
 Do not use `brew install node`. Use fnm (Fast Node Manager), built in Rust. It is significantly faster than nvm.
 
-Bash
-
-```
+```bash
 brew install fnm
 ```
 
 Add to `~/.zshrc`:
 
-Bash
-
-```
+```bash
 eval "$(fnm env --use-on-cd)"
 ```
 
 Install the latest LTS Node:
 
-Bash
-
-```
+```bash
 fnm install --lts
 ```
 
 Package Manager: Enable Corepack to use `pnpm` (standard for modern monorepos):
 
-Bash
-
-```
+```bash
 corepack enable
 ```
 
@@ -212,9 +182,7 @@ corepack enable
 
 For AI and scripting, use uv. It replaces pip, poetry, and virtualenv.
 
-Bash
-
-```
+```bash
 brew install uv
 ```
 
@@ -222,9 +190,7 @@ brew install uv
 
 Essential for Tauri development and high-performance tooling.
 
-Bash
-
-```
+```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
@@ -232,9 +198,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 OrbStack is a lightweight, drop-in replacement for Docker Desktop on macOS. It starts in 2 seconds and uses minimal RAM.
 
-Bash
-
-```
+```bash
 brew install --cask orbstack
 ```
 
@@ -251,9 +215,7 @@ Cursor is a fork of VS Code with native AI integration. It indexes your entire c
 
 #### 2. Visual Studio Code (Legacy/Fallback)
 
-Bash
-
-```
+```bash
 brew install --cask visual-studio-code
 ```
 
@@ -263,9 +225,7 @@ Enable CLI: Open VS Code, `Cmd + Shift + P` -> "Shell Command: Install 'code' co
 
 Install JetBrains Mono (Nerd Font version) to support icons in the terminal.
 
-Bash
-
-```
+```bash
 brew install --cask font-jetbrains-mono-nerd-font
 ```
 
@@ -277,9 +237,7 @@ _Set this font in your Terminal and Editor._
 
 Your final `.zshrc` should look clean like this:
 
-Bash
-
-```
+```bash
 # Path & Homebrew
 export PATH="/opt/homebrew/bin:$PATH"
 
