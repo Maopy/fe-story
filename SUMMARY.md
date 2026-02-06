@@ -43,7 +43,7 @@
 
 ## Engineering
 
-* [Development Environment Setup](engineering/development-environment-setup.md)
+* [Development Environment Setup (2026 Edition)](engineering/development-environment-setup.md)
 
 ## Performance
 
@@ -52,7 +52,7 @@
 * [User-centric Performance Metrics](performance/performance/README.md)
   * [Understanding Navigation Timings](performance/performance/understanding-resource-timing.md)
   * [Performance Timeline Level 2](performance/performance/performance-timeline-level-2.md)
-  * [First CPU Idle & Time to Interactive\(TTI\)](performance/performance/first-cpu-idle-and-time-to-interactive-tti.md)
+  * [First CPU Idle & Time to Interactive(TTI)](performance/performance/first-cpu-idle-and-time-to-interactive-tti.md)
 
 ## Network
 
@@ -66,4 +66,3 @@
 
 * [OOP](computer-science/oop.md)
 * [编程语言通识](computer-science/bian-cheng-yu-yan-tong-shi.md)
-

@@ -1,292 +1,299 @@
 ---
 description: >-
-  A guide to setting up an Apple Mac for DevOps and software development. This
-  is current for macOS 13 (Ventura).
+  A guide to setting up a modern Apple Silicon Mac for high-performance Frontend
+  and AI engineering. This setup prioritizes speed (Rust-based CLI tools) and
+  AI-native workflows.
 ---
 
-# Development Environment Setup
+# Development Environment Setup (2026 Edition)
 
 ## Do This First!
 
-Log in once, run Software Update, and ensure that the operating system is at the latest point release. After all of the updates have been applied, restart the computer.
+Log in, run Software Update, and ensure macOS is on the latest version. Restart the computer.
 
-### Hardware Configuration
+### System Configuration
 
-#### Configuring The Trackpad
+**1. Keyboard & Trackpad (Crucial for Speed)**
 
-To make the trackpad behave correctly, ensure that these settings are enabled:
+* System Settings > Trackpad:
+  * Enable _Tap to click_.
+  * _Accessibility > Pointer Control > Trackpad Options_: Enable _Use trackpad for dragging_ (Three Finger Drag).
+* System Settings > Keyboard:
+  * Key Repeat: Set to _Fastest_.
+  * Delay Until Repeat: Set to _Shortest_. (Essential for navigating code quickly).
 
-* _System Preferences > Trackpad > Tap to click_
-* _System Preferences > Accessibility > Pointer Control > Trackpad Options... > Use trackpad for dragging > Three Finger Drag_
+**2. Finder Tweaks**
 
-#### ~~Configuring The Mouse~~
+* _Finder > Settings > Advanced_:
+  * Show all filename extensions.
+  * Show warning before changing an extension: OFF.
+* Show Path Bar: View > Show Path Bar.
+* Show Hidden Files: Press `Cmd + Shift + .` inside Finder.
 
-~~_System Preferences > Mouse > Turn Natural scroling off_~~
+**3. Replace Spotlight with Raycast**
 
-#### ~~External keyboard~~
+Stop using the default Spotlight. Raycast is the standard for modern developers (Scriptable, Window Management, AI).
 
-~~_System Preferences > Keyboard > Keyboard Shortcuts... > Modifier Keys_ and _Select_ your own external keyboard.~~
+1. Download from [raycast.com](https://www.raycast.com/).
+2. Set the hotkey to `Cmd + Space`.
+3. Disable Spotlight shortcut: _System Settings > Keyboard > Keyboard Shortcuts > Spotlight_ (Uncheck "Show Spotlight Search").
 
-~~Switch _Option Key & Command Key_ configurations.~~
+### The Terminal (Modernized)
 
-### Configuring Security
+We are moving away from legacy tools like iTerm2 and heavy Zsh themes in favor of GPU-accelerated terminals and Rust-based prompts.
 
-#### Securing the Safari Browser
+#### 1. Terminal Emulator
 
-Whether or not you regularly use Safari, you should open it once, and adjust the settings in case that you use it later.
+Choose one of the following:
 
-First, choose _Safari > Preferences > General_ and deselect the option _Open “safe” files after downloading_.
+* Warp: (Recommended) AI-integrated, input works like a text editor, command prediction.
+* Ghostty: GPU-accelerated, written in Zig, incredibly fast and minimal.
 
-Second, go to _Safari > Preferences > Search_. Decide which search engine that you want to use. Ensure that _Safari Suggestions_ and _Preload Top Hit in the background_ are not enabled.
+#### 2. Install Homebrew
 
-#### Security & Privacy
+The package manager for macOS.
 
-Select _System Preferences > Security & Privacy_, and set the following:
-
-* Under _General, s_et require a _password after sleep or screen saver begins_ to _immediately_
-* Under _General,_ click _Advanced... and s_elect _Require an administrator password to access system-wide preferences_
-* Under _Firewall_, click _Turn Firewall On._
-* Under _Privacy_, select _Analytics & Improvements_ and ensure that the options are not enabled.
-
-#### Spotlight
-
-By default, Spotlight sends queries to Apple. Unless you want this feature, turn it off.
-
-Select _System Preferences > Spotlight > Search Results_, and ensure that _Siri Suggestions_ is not enabled.
-
-### System software Configuration
-
-#### Dock
-
-* _Visual Settings_
-  * _Position on screen: Left_
-  * _Size: Small_
-* _Other settings_
-  * _Remove workspace auto-switching by running the following command:_
-
-```bash
-$ defaults write com.apple.dock workspaces-auto-swoosh -bool NO
-$ killall Dock # Restart the Dock process
-```
-
-#### Finder Preferences
-
-* _General_
-  * _New Finder windows show >_ your _Home Directory_
-* _Sidebar_
-  * Add _Home_ & your _Code Directory_
-  * Uncheck all _Shared_ boxes
-
-## Setting Up for Development
-
-The first step is to install the _Command Line Tools for Xcode_. Once you have installed Command Line Tools, you can use [Homebrew](http://brew.sh/) to install everything else that you need.
-
-### Getting Xcode
-
-Apple now provide the Xcode suite as a free download from the App Store. To install the Command Line Tools, install Xcode from the App Store, then open a Terminal window and enter the following command:
-
-```bash
-xcode-select --install
-```
-
-And run the following command to agree the Xcode license.
+Bash
 
 ```
-sudo xcodebuild -license
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-### Setting Up Homebrew
+Add Homebrew to PATH: (Follow the instructions in the terminal output after installation, usually looks like this):
 
-[Homebrew](http://brew.sh/) provides a package management system for macOS, enabling you to quickly install and update the tools and libraries that you need. Follow the instructions on the site.
+Bash
 
-You should also amend your PATH, so that the versions of tools that are installed with Homebrew take precedence over others. Run these three commands in your terminal to add Homebrew to your **PATH**:
-
-```bash
-echo '# Set PATH, MANPATH, etc., for Homebrew.' >> ~/.zprofile
+```
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
-To check that Homebrew is installed correctly, run this command in a terminal window:
+#### 3. Shell & Prompt (Zsh + Starship)
 
-```bash
-brew doctor
+macOS uses Zsh by default. We will use Starship (written in Rust) for the prompt because it is instant and requires zero config to support Git/Node/Rust/Web3 contexts.
+
+Install Starship & Tools:
+
+Bash
+
+```
+brew install starship
 ```
 
-To update the index of available packages, run this command in a terminal window:
+Configure `~/.zshrc`: Open your config file:
 
-```bash
-brew update
+Bash
+
+```
+nano ~/.zshrc
 ```
 
-#### Enabling Auto Completion of Commands <a href="#enabling-auto-completion-of-commands" id="enabling-auto-completion-of-commands"></a>
+Add this line to the end:
 
-To enable auto completion, edit the file _.zshrc_ in your home directory to include this line:
+Bash
 
-```bash
-autoload bashcompinit && bashcompinit
+```
+eval "$(starship init zsh)"
 ```
 
-To use auto completion, type the name of the command, and press the Tab key on your keyboard. You will see a list of possible completions. Press the Tab key to cycle through the completions, and press the Enter key to accept a completion.
+#### 4. Rust-based CLI Replacements
 
-### Installing the Git Version Control System
+Replace legacy Unix commands with modern, faster alternatives.
 
-Always set your details before you create or clone repositories on a new system. This requires two commands in a terminal window:
+Bash
 
-```bash
+```
+brew install eza bat zoxide ripgrep fzf
+```
+
+* eza (better `ls`): Adds icons and git status.
+* bat (better `cat`): Syntax highlighting for files.
+* zoxide (better `cd`): Smart directory jumping (e.g., `z project` jumps to `~/code/project`).
+* ripgrep (better `grep`): Fastest text search.
+
+Add these aliases to your `~/.zshrc` to make them permanent:
+
+Bash
+
+```
+# Modern Aliases
+alias ls="eza --icons"
+alias ll="eza -l --icons --git"
+alias cat="bat"
+alias cd="z"
+
+# Initialize zoxide
+eval "$(zoxide init zsh)"
+```
+
+***
+
+### Git & SSH
+
+#### 1. Configure Git
+
+Bash
+
+```
 git config --global user.name "Your Name"
 git config --global user.email "you@your-domain.com"
-```
-
-The _global_ option means that the setting will apply to every repository that you work with in the current user account.
-
-To enable colors in the output, which can be very helpful, enter this command:
-
-```bash
+git config --global init.defaultBranch main
 git config --global color.ui auto
 ```
 
-### Creating SSH Keys
+#### 2. Generate SSH Key (Ed25519)
 
-You will frequently use SSH to access Git repositories or remote UNIX systems. macOS includes the standard OpenSSH suite of tools.
+We now use Ed25519 keys (more secure and compact than RSA).
 
-OpenSSH stores your SSH keys in a _.ssh_ directory. To create this directory, run these commands in a terminal window:
-
-```bash
-mkdir $HOME/.ssh
-chmod 0700 $HOME/.ssh
-```
-
-To create an SSH key, run the ssh-keygen command in a terminal window. For example:
-
-```bash
-ssh-keygen -t rsa -b 4096 -C "Me MyName (MyDevice) <me@mydomain.com>"
-```
-
-{% hint style="info" %}
-Use 4096-bit RSA keys for all systems. The older DSA standard only supports 1024-bit keys, which are now too small to be considered secure.
-{% endhint %}
-
-### Oh My Zsh
-
-Oh My Zsh is an open source, community-driven framework for managing your zsh configuration. It comes with a bunch of features out of the box and improves your terminal experience.
-
-{% embed url="https://ohmyz.sh/" %}
-
-#### Theme
-
-[Powerlevel10k](https://github.com/romkatv/powerlevel10k) is a theme for Zsh.
-
-#### Plugins
-
-Zsh users have created some useful additions that integrate with it. One of the cool things you can add is syntax highlighting to color command types.
-
-{% embed url="https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md" %}
-
-```shell
-git config --global --add oh-my-zsh.hide-dirty 1
-```
-
-Another one is auto suggestions, which remember common commands that you can easily re-run.
-
-{% embed url="https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md" %}
-
-```shell
-pasteinit() {
-  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
-  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
-}
-
-pastefinish() {
-  zle -N self-insert $OLD_SELF_INSERT
-}
-zstyle :bracketed-paste-magic paste-init pasteinit
-zstyle :bracketed-paste-magic paste-finish pastefinish
-```
-
-Add plugins to your shell by adding the name of the plugin to the `plugin` array in your `.zshrc` .
+Bash
 
 ```
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+ssh-keygen -t ed25519 -C "you@your-domain.com"
 ```
 
+Start the ssh-agent:
 
+Bash
 
-### Installing iTerm2
-
-iTerm2 is an open source replacement for Apple's Terminal. It's highly customizable and comes with a lot of useful features.
-
-[https://www.iterm2.com/](https://www.iterm2.com/)
-
-{% hint style="info" %}
-Instead of downloading and installing iTerm2 manually, you can use Homebrew
-
-```bash
-brew cask install iterm2
 ```
-{% endhint %}
-
-#### Useful Shortcuts
-
-| shortcut |         action         | send |
-| :------: | :--------------------: | :--: |
-|    ⌘←    | _Send Escape Sequence_ |  OH  |
-|    ⌘→    | _Send Escape Sequence_ |  OF  |
-|    ⌥←    | _Send Escape Sequence_ |   b  |
-|    ⌥→    | _Send Escape Sequence_ |   f  |
-
-{% hint style="info" %}
-You may need to edit your config file as well:
-
-{% code title="~/.zshrc" %}
-```bash
-bindkey -e
-bindkey "\e\e[C" forward-word
-bindkey "\e\e[D" backward-word
-```
-{% endcode %}
-{% endhint %}
-
-### Text Editors
-
-Installations of macOS include older command-line versions of both **Emacs** and **vim**, as well as TextEdit, a desktop text editor. TextEdit is designed for light-weight word processing, and has no support for programming. Unless you already have a preferred editor, I suggest that you install **Visual Studio Code**, which are powerful graphical text editors.
-
-#### Setting Up Visual Studio Code
-
-To install Visual Studio Code, enter this command in a terminal window:
-
-```bash
-brew cask install visual-studio-code
+eval "$(ssh-agent -s)"
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 ```
 
-To make Visual Studio Code your default editor, use this line in your _\~/.zshrc_ file:
+#### 3. Git UI
 
-```bash
-export EDITOR="code -n -w"
+Install Lazygit. It is a terminal UI for git commands—much faster than a GUI app but more visual than raw CLI.
+
+Bash
+
+```
+brew install lazygit
 ```
 
-{% embed url="https://www.jetbrains.com/lp/mono/" %}
+***
 
-{% embed url="https://github.com/microsoft/cascadia-code" %}
+### Runtimes & Environments
 
-### Setting Up Environments
+#### 1. Node.js (via fnm)
 
-#### Node.js for JavaScript Development
+Do not use `brew install node`. Use fnm (Fast Node Manager), built in Rust. It is significantly faster than nvm.
 
-Homebrew provides separate packages for each version of [Node.js](https://nodejs.org/). To ensure that you are using the version of Node.js that you expect, specify the version when you install it. For example, enter this command in a Terminal window to install the Node.js 16, the current LTS release:
+Bash
 
-```bash
-brew install node@16
+```
+brew install fnm
 ```
 
-#### Rust Development: rustup <a href="#rust-development-rustup" id="rust-development-rustup"></a>
+Add to `~/.zshrc`:
 
-The official _rustup_ utility enables you to install the tools for building software with the Rust programming language. Click on the Install button on the front page of the [Rust Website](https://www.rust-lang.org/), and follow the instructions.
+Bash
 
-By default, the installer adds the correct directory to your path. If this does not work, add this to your PATH manually:
-
-```bash
-$HOME/.cargo/bin
+```
+eval "$(fnm env --use-on-cd)"
 ```
 
-This process installs all of the tools into your home directory, and does not add any files into system directories.
+Install the latest LTS Node:
+
+Bash
+
+```
+fnm install --lts
+```
+
+Package Manager: Enable Corepack to use `pnpm` (standard for modern monorepos):
+
+Bash
+
+```
+corepack enable
+```
+
+#### 2. Python (via uv)
+
+For AI and scripting, use uv. It replaces pip, poetry, and virtualenv.
+
+Bash
+
+```
+brew install uv
+```
+
+#### 3. Rust (via rustup)
+
+Essential for Tauri development and high-performance tooling.
+
+Bash
+
+```
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+#### 4. Containerization (OrbStack)
+
+OrbStack is a lightweight, drop-in replacement for Docker Desktop on macOS. It starts in 2 seconds and uses minimal RAM.
+
+Bash
+
+```
+brew install --cask orbstack
+```
+
+***
+
+### Editors (AI-First)
+
+#### 1. Cursor (Recommended)
+
+Cursor is a fork of VS Code with native AI integration. It indexes your entire codebase for smarter context.
+
+* Download: [cursor.com](https://cursor.com/)
+* Migration: It can import all your VS Code extensions and settings on the first launch.
+
+#### 2. Visual Studio Code (Legacy/Fallback)
+
+Bash
+
+```
+brew install --cask visual-studio-code
+```
+
+Enable CLI: Open VS Code, `Cmd + Shift + P` -> "Shell Command: Install 'code' command in PATH".
+
+#### 3. Recommended Font
+
+Install JetBrains Mono (Nerd Font version) to support icons in the terminal.
+
+Bash
+
+```
+brew install --cask font-jetbrains-mono-nerd-font
+```
+
+_Set this font in your Terminal and Editor._
+
+***
+
+### Summary of `~/.zshrc`
+
+Your final `.zshrc` should look clean like this:
+
+Bash
+
+```
+# Path & Homebrew
+export PATH="/opt/homebrew/bin:$PATH"
+
+# Tools Initialization
+eval "$(starship init zsh)"
+eval "$(fnm env --use-on-cd)"
+eval "$(zoxide init zsh)"
+
+# Aliases
+alias ls="eza --icons"
+alias ll="eza -l --icons --git"
+alias cat="bat"
+alias lg="lazygit"
+
+# Editor
+export EDITOR="code -n -w" # Or "cursor -n -w"
+```
