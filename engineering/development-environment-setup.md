@@ -140,14 +140,6 @@ eval "$(ssh-agent -s)"
 ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 ```
 
-#### 3. Git UI
-
-Install Lazygit. It is a terminal UI for git commands—much faster than a GUI app but more visual than raw CLI.
-
-```bash
-brew install lazygit
-```
-
 ***
 
 ### Runtimes & Environments
@@ -227,6 +219,8 @@ Install JetBrains Mono (Nerd Font version) to support icons in the terminal.
 
 ```bash
 brew install --cask font-jetbrains-mono-nerd-font
+brew install --cask font-monaspace
+brew install --cask font-cascadia-code
 ```
 
 _Set this font in your Terminal and Editor._
@@ -250,7 +244,6 @@ eval "$(zoxide init zsh)"
 alias ls="eza --icons"
 alias ll="eza -l --icons --git"
 alias cat="bat"
-alias lg="lazygit"
 
 # Editor
 export EDITOR="code -n -w" # Or "cursor -n -w"
