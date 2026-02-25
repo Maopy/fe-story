@@ -112,6 +112,40 @@ alias cd="z"
 eval "$(zoxide init zsh)"
 ```
 
+#### 5. Keeping Oh My Zsh Aliases (Without the Bloat)
+
+If you rely heavily on Oh My Zsh's Git abbreviations (like `gst`, `gco`, `gaa`) but want to avoid its slow startup time, the best approach is to extract your favorite aliases into a standalone file. This keeps your terminal blazing fast while preserving your muscle memory.
+
+Step 1: Create a Standalone Aliases File Run this command in your terminal to create a dedicated file for your aliases:
+
+```bash
+touch ~/.zsh_aliases
+```
+
+Step 2: Add Your Favorite Aliases Open `~/.zsh_aliases` in your editor and paste the extracted Oh My Zsh commands. Here is a solid default list for everyday Git workflows:
+
+```bash
+# === Git Aliases (Extracted from OMZ) ===
+alias gaa='git add --all'
+alias gst='git status'
+alias gco='git checkout'
+alias gcb='git checkout -b'
+alias gcmsg='git commit -m'
+alias gcam='git commit -a -m'
+alias gl='git pull'
+alias gp='git push'
+alias gcl='git clone --recurse-submodules'
+```
+
+Step 3: Source it in your `~/.zshrc` Open your `~/.zshrc` file and add this block to the very bottom so your terminal loads these shortcuts every time it starts:
+
+```bash
+# Load custom aliases
+if [ -f ~/.zsh_aliases ]; then
+    source ~/.zsh_aliases
+fi
+```
+
 ***
 
 ### Git & SSH
